@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reporte de Actividades · Programa Contigo Conectados</title>
+  <meta name="description" content="Formulario oficial de reporte de actividades del programa Contigo Conectados. Fundación MásPorTIC y TIGO Colombia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --tigo-blue:        #003F8C;
+      --tigo-blue-deep:   #002B66;
+      --tigo-blue-light:  #1D6FD3;
+      --tigo-blue-50:     #E8F0FB;
+      --tigo-blue-100:    #C8DCF3;
+
+      --mp-green:         #2E8B40;
+      --mp-green-50:      #EDF6EF;
+
+      --bg:               #F4F6F9;
+      --paper:            #FFFFFF;
+      --ink:              #11181F;
+      --ink-muted:        #475569;
+      --ink-soft:         #64748B;
+      --line:             #D5DCE5;
+      --line-soft:        #E8ECF1;
+      --error:            #B91C1C;
+      --error-bg:         #FEF2F2;
+
+      --radius-sm: 2px;
+      --radius:    4px;
+
+      --font: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--tigo-blue); text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { color: var(--tigo-blue-deep); }
+
+    .topstripe { height: 4px; background: var(--tigo-blue); }
+    .header { background: var(--paper); border-bottom: 1px solid var(--line); }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .brand-group { display: flex; align-items: center; gap: 18px; }
+    .brand-logo { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+    .brand-tigo { color: var(--tigo-blue); }
+    .brand-mp { color: var(--mp-green); }
+    .brand-divider { width: 1px; height: 22px; background: var(--line); }
+    .header-meta { font-size: 13px; color: var(--ink-muted); font-weight: 500; }
+
+    .hero { background: var(--paper); border-bottom: 1px solid var(--line); }
+    .hero-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 48px; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tigo-blue);
+      background: var(--tigo-blue-50);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0 0 16px 0;
+      max-width: 780px;
+    }
+    .hero-emoji { display: inline-block; margin-left: 6px; }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+      max-width: 680px;
+      margin: 0 0 24px 0;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-soft);
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .hero-meta strong { color: var(--ink); font-weight: 600; }
+    .hero-meta-item { display: flex; align-items: center; gap: 8px; }
+    .hero-meta-dot { width: 6px; height: 6px; background: var(--tigo-blue); border-radius: 50%; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+    .layout { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 920px) { .layout { grid-template-columns: 1fr; gap: 24px; } }
+
+    .stepper {
+      position: sticky;
+      top: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    @media (max-width: 920px) {
+      .stepper { position: static; display: flex; overflow-x: auto; padding: 4px; }
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .step:last-child { border-bottom: none; }
+    @media (max-width: 920px) {
+      .step { flex-shrink: 0; border-bottom: none; border-right: 1px solid var(--line-soft); white-space: nowrap; }
+    }
+    .step:hover { background: var(--bg); text-decoration: none; }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--bg);
+      color: var(--ink-soft);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step.active { background: var(--tigo-blue-50); color: var(--tigo-blue-deep); font-weight: 600; }
+    .step.active .step-num { background: var(--tigo-blue); color: white; }
+
+    .form-wrap { max-width: 720px; }
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 20px;
+      scroll-margin-top: 24px;
+    }
+    @media (max-width: 600px) { .section { padding: 24px 20px; } }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--line-soft);
+      flex-wrap: wrap;
+    }
+    .section-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--tigo-blue);
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: var(--tigo-blue-50);
+      border-radius: var(--radius-sm);
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .section-desc {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin: -16px 0 24px 0;
+      line-height: 1.55;
+    }
+
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) {
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      .field-row .field { margin-bottom: 20px; }
+    }
+
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    label .req { color: var(--error); margin-left: 2px; }
+    .label-hint { display: block; font-size: 12px; font-weight: 400; color: var(--ink-soft); margin-top: 3px; }
+
+    input[type="text"], input[type="email"], input[type="number"],
+    input[type="date"], input[type="tel"],
+    select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--tigo-blue);
+      box-shadow: 0 0 0 3px var(--tigo-blue-50);
+    }
+    input::placeholder, textarea::placeholder { color: #94A3B8; }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%2364748B' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    textarea { resize: vertical; min-height: 100px; font-family: inherit; }
+
+    .file-drop {
+      position: relative;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      background: var(--bg);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .file-drop:hover { border-color: var(--tigo-blue); background: var(--tigo-blue-50); }
+    .file-drop.has-file { border-color: var(--mp-green); border-style: solid; background: var(--mp-green-50); }
+    .file-drop input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .file-drop-title { font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 4px; }
+    .file-drop-hint { font-size: 12px; color: var(--ink-soft); line-height: 1.45; }
+    .file-drop-name {
+      display: none;
+      margin-top: 12px;
+      padding: 8px 12px;
+      background: var(--paper);
+      border: 1px solid var(--mp-green);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--mp-green);
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .file-drop.has-file .file-drop-name { display: inline-block; }
+
+    .conditional { display: none; animation: fadeSlide 0.25s ease-out; }
+    .conditional.show { display: block; }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .info-callout {
+      background: var(--tigo-blue-50);
+      border-left: 3px solid var(--tigo-blue);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+    .info-callout strong { color: var(--tigo-blue-deep); font-weight: 700; }
+
+    .actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding-top: 8px; }
+    .btn {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary { background: var(--tigo-blue); color: white; border-color: var(--tigo-blue); }
+    .btn-primary:hover { background: var(--tigo-blue-deep); border-color: var(--tigo-blue-deep); }
+    .btn-primary:disabled { background: var(--ink-soft); border-color: var(--ink-soft); cursor: not-allowed; }
+    .actions-note { font-size: 12px; color: var(--ink-soft); }
+
+    .error-banner {
+      display: none;
+      background: var(--error-bg);
+      border: 1px solid #FCA5A5;
+      color: var(--error);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .error-banner.show { display: block; }
+
+    .spinner {
+      width: 14px; height: 14px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .success-view {
+      display: none;
+      text-align: center;
+      padding: 60px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .success-view.show { display: block; }
+    .success-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 20px;
+      background: var(--mp-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .success-icon svg { color: white; }
+    .success-title { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 12px 0; }
+    .success-msg { font-size: 15px; color: var(--ink-muted); line-height: 1.55; margin: 0 0 28px 0; }
+    .success-summary { background: var(--bg); border-radius: var(--radius-sm); padding: 20px; text-align: left; margin-bottom: 24px; }
+    .success-summary dt {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    .success-summary dt:first-child { margin-top: 0; }
+    .success-summary dd { margin: 4px 0 0 0; font-size: 14px; color: var(--ink); font-weight: 500; }
+
+    footer { border-top: 1px solid var(--line); background: var(--paper); padding: 24px; }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topstripe"></div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <span class="brand-logo brand-tigo">TIGO</span>
+        <span class="brand-divider"></span>
+        <span class="brand-logo brand-mp">Fundación MásPorTIC</span>
+      </div>
+      <span class="header-meta">Programa Contigo Conectados</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-tag">Reporte oficial · 2026</span>
+      <h1 class="hero-title">
+        Cada actividad cuenta, cuentála aquí
+        <span class="hero-emoji">📋</span>
+      </h1>
+      <p class="hero-desc">
+        Este es el formulario oficial de reporte de actividades del programa Contigo Conectados. Los datos que registres alimentan la base consolidada y el tablero en Power BI. Diligencia con cuidado.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <span class="hero-meta-dot"></span>
+          Tiempo aproximado: <strong>5 minutos</strong>
+        </span>
+        <span class="hero-meta-item">
+          <span class="hero-meta-dot"></span>
+          Soporte: <a href="mailto:soporte@masportic.onmicrosoft.com">soporte@masportic.onmicrosoft.com</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="layout" id="form-view">
+
+      <nav class="stepper" id="stepper" aria-label="Progreso del formulario">
+        <a href="#sec-1" class="step active" data-step="1"><span class="step-num">1</span><span>Identificación</span></a>
+        <a href="#sec-2" class="step" data-step="2"><span class="step-num">2</span><span>Ubicación geográfica</span></a>
+        <a href="#sec-3" class="step" data-step="3"><span class="step-num">3</span><span>Alianzas e instituciones</span></a>
+        <a href="#sec-4" class="step" data-step="4"><span class="step-num">4</span><span>Clasificación</span></a>
+        <a href="#sec-5" class="step" data-step="5"><span class="step-num">5</span><span>Resultados</span></a>
+      </nav>
+
+      <div class="form-wrap">
+        <form id="reportForm" novalidate>
+
+          <!-- ============ CATEGORÍA 1: IDENTIFICACIÓN ============ -->
+          <section class="section" id="sec-1">
+            <div class="section-header">
+              <span class="section-tag">Categoría 1</span>
+              <h2 class="section-title">Identificación</h2>
+            </div>
+            <p class="section-desc">Identifica al gestor social y el tipo de gestión reportada. El año, mes y día se calculan a partir de la fecha.</p>
+
+            <div class="field">
+              <label for="tipoGestion">Tipo de Gestión<span class="req">*</span></label>
+              <select id="tipoGestion" name="tipoGestion" required>
+                <option value="">Selecciona</option>
+                <option>Canales Digitales</option>
+                <option>Contenidos Digitales</option>
+                <option>Gestión Individual</option>
+                <option>Gestión Territorial</option>
+                <option>Plataformas Digitales</option>
+                <option>Voluntariado Ambiental</option>
+                <option>Voluntariado Social</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="gestor">Nombre Líder Territorial<span class="req">*</span></label>
+              <select id="gestor" name="gestor" required>
+                <option value="">Selecciona tu nombre</option>
+                <option>Alexandra Villa</option>
+                <option>Andres Robayo</option>
+                <option>Angela Quintero</option>
+                <option>Carolina Escobar</option>
+                <option>Daniela Díaz</option>
+                <option>Eliana Camargo</option>
+                <option>Monica Molano</option>
+                <option>Jeimy Rubio</option>
+                <option>Julian Burgos</option>
+                <option>Juliana Rivera</option>
+                <option>Lilia Davino</option>
+                <option>Luisa Malaver</option>
+                <option>Marjoan Robayo</option>
+                <option>Nataly Valencia</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="fecha">Fecha de la actividad<span class="req">*</span>
+                <span class="label-hint">De aquí se obtienen el año, el mes y el día para la base de datos.</span>
+              </label>
+              <input type="date" id="fecha" name="fecha" required />
+            </div>
+          </section>
+
+          <!-- ============ CATEGORÍA 2: UBICACIÓN GEOGRÁFICA ============ -->
+          <section class="section" id="sec-2">
+            <div class="section-header">
+              <span class="section-tag">Categoría 2</span>
+              <h2 class="section-title">Ubicación geográfica</h2>
+            </div>
+            <p class="section-desc">Geolocaliza tu intervención para los mapas del tablero.</p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="region">Región<span class="req">*</span></label>
+                <select id="region" name="region" required>
+                  <option value="">Selecciona</option>
+                  <option>Centro</option>
+                  <option>Costa</option>
+                  <option>Eje Cafetero</option>
+                  <option>Nacional</option>
+                  <option>Noroccidente</option>
+                  <option>Oriente</option>
+                  <option>Suroccidente</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="departamento">Departamento<span class="req">*</span></label>
+                <select id="departamento" name="departamento" required>
+                  <option value="">Selecciona</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="municipio">Municipio<span class="req">*</span>
+                  <span class="label-hint">Escribe las primeras letras para filtrar. Selecciona primero el departamento.</span>
+                </label>
+                <input type="text" id="municipio" name="municipio" list="municipios-list" autocomplete="off" placeholder="Selecciona primero el departamento" disabled required />
+                <datalist id="municipios-list"></datalist>
+              </div>
+              <div class="field">
+                <label for="comuna">Comuna / Corregimiento / Localidad<span class="req">*</span></label>
+                <input type="text" id="comuna" name="comuna" required />
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ CATEGORÍA 3: ALIANZAS E INSTITUCIONES ============ -->
+          <section class="section" id="sec-3">
+            <div class="section-header">
+              <span class="section-tag">Categoría 3</span>
+              <h2 class="section-title">Alianzas e instituciones</h2>
+            </div>
+
+            <div class="info-callout">
+              <strong>Alianza:</strong> vínculo formal con acuerdo escrito.<br>
+              <strong>Articulación:</strong> trabajo coordinado sin acuerdo formal.
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="nivelAlianza">Nivel de alianza<span class="req">*</span></label>
+                <select id="nivelAlianza" name="nivelAlianza" required>
+                  <option value="">Selecciona</option>
+                  <option>Departamental</option>
+                  <option>Regional</option>
+                  <option>Municipal</option>
+                  <option>Nacional</option>
+                  <option>Territorial</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="tipoVinculo">¿Es alianza o articulación?<span class="req">*</span></label>
+                <select id="tipoVinculo" name="tipoVinculo" required>
+                  <option value="">Selecciona</option>
+                  <option value="Alianza">Es una Alianza</option>
+                  <option value="Articulación">Es una Articulación</option>
+                  <option value="No aplica">Sin alianza ni articulación</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="tipoAlianza">Tipo de Alianza<span class="req">*</span></label>
+              <select id="tipoAlianza" name="tipoAlianza" required>
+                <option value="">Selecciona</option>
+                <option>Universidades</option>
+                <option>Empresa privada</option>
+                <option>Gobierno Departamental</option>
+                <option>Gobierno Municipal</option>
+                <option>Gobierno Nacional</option>
+                <option>ONG y Fundaciones</option>
+                <option>NA</option>
+              </select>
+            </div>
+
+            <div class="field" id="cond-nombreAlianza">
+              <label for="nombreAlianza">Nombre de la alianza o articulación<span class="req">*</span>
+                <span class="label-hint">La entidad con la que se gestiona el vínculo. Es distinta a la institución donde se realiza la actividad. Elige una de la lista o escribe una nueva. Si no aplica, escribe NA.</span>
+              </label>
+              <input type="text" id="nombreAlianza" name="nombreAlianza" list="aliados-list" autocomplete="off" placeholder="Escribe o selecciona la entidad aliada" required />
+              <datalist id="aliados-list"></datalist>
+            </div>
+
+            <div class="field">
+              <label for="tipoInst">Tipo de Institución<span class="req">*</span></label>
+              <select id="tipoInst" name="tipoInst" required>
+                <option value="">Selecciona</option>
+                <option>Entidades Gubernamentales</option>
+                <option>Institución Educativa</option>
+                <option>NA</option>
+                <option>Organización Social - ONG</option>
+                <option>Organizaciones Sociales</option>
+                <option>Prensa</option>
+                <option>Universidades</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="nombreInst">Nombre de la Institución<span class="req">*</span></label>
+              <input type="text" id="nombreInst" name="nombreInst" required />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="direccion">Dirección<span class="req">*</span></label>
+                <input type="text" id="direccion" name="direccion" placeholder="Calle, número" required />
+              </div>
+              <div class="field">
+                <label for="estrato">Estrato<span class="req">*</span></label>
+                <select id="estrato" name="estrato" required>
+                  <option value="">Selecciona</option>
+                  <option>1</option><option>2</option><option>3</option>
+                  <option>4</option><option>5</option><option>6</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ CATEGORÍA 4: CLASIFICACIÓN DE ORGANIZACIÓN ============ -->
+          <section class="section" id="sec-4">
+            <div class="section-header">
+              <span class="section-tag">Categoría 4</span>
+              <h2 class="section-title">Clasificación de organización</h2>
+            </div>
+            <p class="section-desc">Naturaleza de la organización y modalidad de la intervención.</p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="tipoOrg">Tipo de Organización<span class="req">*</span></label>
+                <select id="tipoOrg" name="tipoOrg" required>
+                  <option value="">Selecciona</option>
+                  <option>Pública</option>
+                  <option>Privada</option>
+                  <option>Mixta</option>
+                  <option>Sin ánimo de lucro</option>
+                  <option>No aplica</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="zona">Zona<span class="req">*</span></label>
+                <select id="zona" name="zona" required>
+                  <option value="">Selecciona</option>
+                  <option>Urbana</option>
+                  <option>Rural</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="tipoIntervencion">Tipo de Intervención<span class="req">*</span></label>
+              <select id="tipoIntervencion" name="tipoIntervencion" required>
+                <option value="">Selecciona</option>
+                <option>Virtual</option>
+                <option>Presencial</option>
+                <option>Mixta</option>
+              </select>
+            </div>
+          </section>
+
+          <!-- ============ CATEGORÍA 5: RESULTADOS, ACTIVIDADES Y EVIDENCIAS ============ -->
+          <section class="section" id="sec-5">
+            <div class="section-header">
+              <span class="section-tag">Categoría 5</span>
+              <h2 class="section-title">Resultados, actividades y evidencias</h2>
+            </div>
+            <p class="section-desc">Cómo y a quiénes llegó tu actividad, más los soportes que la respaldan.</p>
+
+            <div class="field">
+              <label for="publico">Público<span class="req">*</span></label>
+              <select id="publico" name="publico" required>
+                <option value="">Selecciona</option>
+                <option>Adolescentes</option>
+                <option>Adultos Mayores</option>
+                <option>Emprendedores</option>
+                <option>Jóvenes</option>
+                <option>Maestros</option>
+                <option>Mujeres</option>
+                <option>Niños 10-12 años</option>
+                <option>Niños 6-9 años</option>
+                <option>Operadores o Funcionarios</option>
+                <option>Padres, madres o cuidadores</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="actividad">Tipo de actividad o proyecto<span class="req">*</span>
+                <span class="label-hint">Selecciona la actividad del catálogo. Si es nueva, elige "Otra".</span>
+              </label>
+              <select id="actividad" name="actividad" required>
+                <option value="">Selecciona la actividad</option>
+                <option>Familias conectadas: acuerdos para el uso responsable y seguro de Internet</option>
+                <option>Navegando a mi ritmo: mejores búsquedas en Internet</option>
+                <option>Conéctate al aula digital: transforma tus clases con herramientas digitales</option>
+                <option>Mi primera pantalla: un portal al mundo de Pepe, Tito y Leti</option>
+                <option>Guardianes digitales: Conexión con los entornos protectores</option>
+                <option>DocencIA: potencia tu creatividad pedagógica en el aula</option>
+                <option>Clase+cámara+acción: creando contenidos educativos</option>
+                <option>Acompañar para conectar: mediación docente para el uso de internet</option>
+                <option>Mi primer clic: mediación en familia para la primera infancia</option>
+                <option>Mediación digital en familia</option>
+                <option>Conectadas con el empleo: haz brillar tu perfil con herramientas profesionales</option>
+                <option>Conectadas con el emprendimiento: lleva tu negocio a otro nivel</option>
+                <option>Conectadas con la educación: herramientas digitales para el aprendizaje</option>
+                <option>Detrás del avatar: DebaTIC</option>
+                <option>Más allá del trend: Riesgos y oportunidades de las redes.</option>
+                <option>Del like al aprendizaje: oportunidades de las Redes Sociales como herramientas educativas</option>
+                <option>Internet para cuidarte: bienestar en línea</option>
+                <option>Famil-IA: reduce la brecha digital con Inteligencia Artificial</option>
+                <option>Todos Conectados: Brújula digital para la vida diaria</option>
+                <option>Transacciones seguras en Internet</option>
+                <option>Tecnología a mi ritmo</option>
+                <option>Tu radar digital: identifica recursos digitales para tus clases</option>
+                <option>Bienestar digital docente: hábitos para trabajar con tecnología sin agotarse</option>
+                <option>Tareas sin drama: acompaña el aprendizaje usando herramientas digitales</option>
+                <option>Pantallas con sentido: elige contenidos adecuados según la edad</option>
+                <option>Conectadas con tus derechos: herramientas para participar con confianza en los espacios digitales públicos</option>
+                <option>Conectadas con tus Finanzas: gestiona tu dinero en el entorno digital</option>
+                <option>Pantalla OFF, descanso ON</option>
+                <option>Escudo digital activado</option>
+                <option value="__OTRA__">Otra (especificar abajo)</option>
+              </select>
+            </div>
+
+            <div class="field conditional" id="cond-otraActividad">
+              <label for="otraActividad">Nombre de la nueva actividad<span class="req">*</span></label>
+              <input type="text" id="otraActividad" name="otraActividad" placeholder="Describe la actividad" />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="numActividades">Número de actividades<span class="req">*</span>
+                  <span class="label-hint">Cuántas sesiones o eventos componen este reporte.</span>
+                </label>
+                <input type="number" id="numActividades" name="numActividades" min="1" value="1" required />
+              </div>
+              <div class="field">
+                <label for="totalBenef">Total beneficiarios<span class="req">*</span></label>
+                <input type="number" id="totalBenef" name="totalBenef" min="0" placeholder="0" required />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="mujeres">Mujeres beneficiadas<span class="req">*</span></label>
+                <input type="number" id="mujeres" name="mujeres" min="0" placeholder="0" required />
+              </div>
+              <div class="field">
+                <label for="hombres">Hombres beneficiados<span class="req">*</span></label>
+                <input type="number" id="hombres" name="hombres" min="0" placeholder="0" required />
+              </div>
+            </div>
+
+            <div class="field conditional" id="cond-voluntarios">
+              <label for="voluntarios">Número de voluntarios<span class="req">*</span>
+                <span class="label-hint">Solo aplica para Voluntariado Social o Ambiental.</span>
+              </label>
+              <input type="number" id="voluntarios" name="voluntarios" min="0" placeholder="0" />
+            </div>
+
+            <div class="info-callout" id="benefHint" style="display:none;">
+              <strong>Atención:</strong> <span id="benefHintMsg"></span>
+            </div>
+
+            <div class="field">
+              <label for="evidencia">Adjuntar evidencia<span class="req">*</span></label>
+              <div class="file-drop" id="fileDrop">
+                <input type="file" id="evidencia" name="evidencia" accept=".jpg,.jpeg,.png,.pdf,.docx,.xlsx" required />
+                <div class="file-drop-title">Haz clic o arrastra un archivo aquí</div>
+                <div class="file-drop-hint">Fotos, pantallazos, listados de asistencia, soportes. JPG, PNG, PDF, DOCX, XLSX. Máximo 10 MB.</div>
+                <div class="file-drop-name" id="fileName"></div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="audiovisual">Adjuntar registro audiovisual
+                <span class="label-hint">Opcional. Enlace o archivo de video o galería fotográfica de la actividad.</span>
+              </label>
+              <div class="file-drop" id="fileDropAv">
+                <input type="file" id="audiovisual" name="audiovisual" accept=".jpg,.jpeg,.png,.mp4,.mov,.pdf" />
+                <div class="file-drop-title">Haz clic o arrastra un archivo aquí</div>
+                <div class="file-drop-hint">Video o galería. JPG, PNG, MP4, MOV, PDF. Máximo 10 MB. Si es un enlace, agrégalo en los comentarios.</div>
+                <div class="file-drop-name" id="fileNameAv"></div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="comentarios">Observaciones o comentarios<span class="req">*</span></label>
+              <textarea id="comentarios" name="comentarios" placeholder="Cuenta brevemente cómo fue la actividad: logros, retos, aprendizajes. Si tienes un enlace de video, pégalo aquí."></textarea>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar reporte</button>
+              <span class="actions-note">Los datos van directo a la base consolidada y al tablero Power BI.</span>
+            </div>
+
+            <div class="error-banner" id="errorBanner"></div>
+          </section>
+
+        </form>
+      </div>
+    </div>
+
+    <section class="success-view" id="success-view">
+      <div class="success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h2 class="success-title">Reporte registrado</h2>
+      <p class="success-msg">
+        Tu actividad fue registrada en la base consolidada del programa. Recibirás un correo de confirmación con el resumen. Gracias por tu gestión.
+      </p>
+      <dl class="success-summary" id="successSummary"></dl>
+      <button class="btn btn-primary" onclick="window.location.reload()">Registrar otra actividad</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Fundación MásPorTIC · TIGO Colombia · 2026</span>
+      <span>Reporte de actividades · Programa Contigo Conectados</span>
+    </div>
+  </footer>
+
+  <script>
+  const N8N_WEBHOOK_URL = 'https://masportic.app.n8n.cloud/webhook/contigo-conectados';
+
+  const DEPARTAMENTOS = [
+    'Amazonas','Antioquia','Arauca','Atlántico','Bogotá D.C.','Bolívar','Boyacá',
+    'Caldas','Caquetá','Casanare','Cauca','Cesar','Chocó','Córdoba','Cundinamarca',
+    'Guainía','Guaviare','Huila','La Guajira','Magdalena','Meta','Nariño',
+    'Norte de Santander','Putumayo','Quindío','Risaralda','San Andrés y Providencia',
+    'Santander','Sucre','Tolima','Valle del Cauca','Vaupés','Vichada'
+  ];
+
+  // Sugerencias de aliados conocidos (el usuario puede escribir uno nuevo)
+  const ALIANZAS = [
+    'Gobernación de Antioquia',
+    'Secretaría de Educación Municipal de Palmira',
+    'Secretaría de Participación y Desarrollo Social de Cartagena',
+    'Secretaría TIC de Bolívar',
+    'Secretaría Distrital de la Mujer de Bogotá',
+    'Consejería Distrital de TIC de Bogotá'
+  ];
+  const ARTICULACIONES = [
+    'Gobernación de Boyacá',
+    'Secretaría de Educación de Envigado',
+    'Secretaría TIC de Pereira',
+    'Secretaría de Educación de Dosquebradas',
+    'Cámara de Comercio de Pereira',
+    'Universidad Tecnológica de Pereira (UTP)',
+    'Secretaría de Educación Departamental Risaralda',
+    'Secretaría de Educación Municipal de Santiago de Cali',
+    'Fundación SIDOC',
+    'Departamento de Prosperidad Social',
+    'Secretaría de Educación de Bucaramanga',
+    'Dirección de Emprendimiento y Competitividad de Barrancabermeja',
+    'Secretaría Distrital de Educación de Barranquilla',
+    'Red de Bibliotecas Departamentales del Atlántico',
+    'Secretaría Departamental de la Mujer del Atlántico',
+    'CIBERTEC',
+    'Secretaría de Educación de Marinilla',
+    'Colegio Cumbres',
+    'Gerencia de las TIC de Barrancabermeja',
+    'Alcaldía Municipal de Marinilla',
+    'Instituto Colombiano de Bienestar Familiar (ICBF)',
+    'Secretaría de Educación Departamental del Atlántico',
+    'Universidad del Atlántico'
+  ];
+
+  // Municipios por departamento (fuente: DANE / dataset oficial Colombia)
+  const MUNICIPIOS = {"Amazonas":["Leticia","Puerto Nariño"],"Antioquia":["Abejorral","Abriaquí","Alejandría","Amagá","Amalfi","Andes","Angelópolis","Angostura","Anorí","Anzá","Apartadó","Arboletes","Argelia","Armenia","Barbosa","Bello","Belmira","Betania","Betulia","Briceño","Buriticá","Caicedo","Caldas","Campamento","Caracolí","Caramanta","Carepa","Carolina del Príncipe","Caucasia","Cañasgordas","Chigorodó","Cisneros","Ciudad Bolívar","Cocorná","Concepción","Concordia","Copacabana","Cáceres","Dabeiba","Donmatías","Ebéjico","El Bagre","El Carmen de Viboral","El Peñol","El Retiro","El Santuario","Entrerríos","Envigado","Fredonia","Frontino","Giraldo","Girardota","Granada","Guadalupe","Guarne","Guatapé","Gómez Plata","Heliconia","Hispania","Itagüí","Ituango","Jardín","Jericó","La Ceja","La Estrella","La Pintada","La Unión","Liborina","Maceo","Marinilla","Medellín","Montebello","Murindó","Mutatá","Nariño","Nechí","Necoclí","Olaya","Peque","Pueblorrico","Puerto Berrío","Puerto Nare","Puerto Triunfo","Remedios","Rionegro","Sabanalarga","Sabaneta","Salgar","San Andrés de Cuerquia","San Carlos","San Francisco","San Jerónimo","San José de la Montaña","San Juan de Urabá","San Luis","San Pedro de Urabá","San Pedro de los Milagros","San Rafael","San Roque","San Vicente","Santa Bárbara","Santa Fe de Antioquia","Santa Rosa de Osos","Santo Domingo","Segovia","Sonsón","Sopetrán","Tarazá","Tarso","Titiribí","Toledo","Turbo","Támesis","Uramita","Urrao","Valdivia","Valparaíso","Vegachí","Venecia","Vigía del Fuerte","Yalí","Yarumal","Yolombó","Yondó","Zaragoza"],"Arauca":["Arauca","Arauquita","Cravo Norte","Fortul","Puerto Rondón","Saravena","Tame"],"Atlántico":["Baranoa","Barranquilla","Campo de la Cruz","Candelaria","Galapa","Juan de Acosta","Luruaco","Malambo","Manatí","Palmar de Varela","Piojó","Polonuevo","Ponedera","Puerto Colombia","Repelón","Sabanagrande","Sabanalarga","Santa Lucía","Santo Tomás","Soledad","Suán","Tubará","Usiacurí"],"Bolívar":["Achí","Altos del Rosario","Arenal","Arjona","Arroyohondo","Barranco de Loba","Brazuelo de Papayal","Calamar","Cantagallo","Cartagena de Indias","Cicuco","Clemencia","Córdoba","El Carmen de Bolívar","El Guamo","El Peñón","Hatillo de Loba","Magangué","Mahates","Margarita","María la Baja","Mompós","Montecristo","Morales","Norosí","Pinillos","Regidor","Río Viejo","San Cristóbal","San Estanislao","San Fernando","San Jacinto","San Jacinto del Cauca","San Juan Nepomuceno","San Martín de Loba","San Pablo","Santa Catalina","Santa Rosa","Santa Rosa del Sur","Simití","Soplaviento","Talaigua Nuevo","Tiquisio","Turbaco","Turbaná","Villanueva","Zambrano"],"Boyacá":["Almeida","Aquitania","Arcabuco","Belén","Berbeo","Betéitiva","Boavita","Boyacá","Briceño","Buenavista","Busbanzá","Caldas","Campohermoso","Cerinza","Chinavita","Chiquinquirá","Chiscas","Chita","Chitaraque","Chivatá","Chivor","Chíquiza","Ciénega","Coper","Corrales","Covarachía","Cubará","Cucaita","Cuítiva","Cómbita","Duitama","El Cocuy","El Espino","Firavitoba","Floresta","Gachantivá","Garagoa","Guacamayas","Guateque","Guayatá","Gámeza","Güicán","Iza","Jenesano","Jericó","La Capilla","La Uvita","La Victoria","Labranzagrande","Macanal","Maripí","Miraflores","Mongua","Monguí","Moniquirá","Motavita","Muzo","Nobsa","Nuevo Colón","Oicatá","Otanche","Pachavita","Paipa","Pajarito","Panqueba","Pauna","Paya","Paz del Río","Pesca","Pisba","Puerto Boyacá","Páez","Quípama","Ramiriquí","Rondón","Ráquira","Saboyá","Samacá","San Eduardo","San José de Pare","San Luis de Gaceno","San Mateo","San Miguel de Sema","San Pablo de Borbur","Santa María","Santa Rosa de Viterbo","Santa Sofía","Santana","Sativanorte","Sativasur","Siachoque","Soatá","Socha","Socotá","Sogamoso","Somondoco","Sora","Soracá","Sotaquirá","Susacón","Sutamarchán","Sutatenza","Sáchica","Tasco","Tenza","Tibaná","Tibasosa","Tinjacá","Tipacoque","Toca","Togüí","Tota","Tunja","Tununguá","Turmequé","Tuta","Tutazá","Tópaga","Ventaquemada","Villa de Leyva","Viracachá","Zetaquira","Úmbita"],"Caldas":["Aguadas","Anserma","Aranzazu","Belalcázar","Chinchiná","Filadelfia","La Dorada","La Merced","Manizales","Manzanares","Marmato","Marquetalia","Marulanda","Neira","Norcasia","Palestina","Pensilvania","Pácora","Riosucio","Risaralda","Salamina","Samaná","San José","Supía","Victoria","Villamaría","Viterbo"],"Caquetá":["Albania","Belén de los Andaquíes","Cartagena del Chairá","Curillo","El Doncello","El Paujil","Florencia","La Montañita","Milán","Morelia","Puerto Rico","San José del Fragua","San Vicente del Caguán","Solano","Solita","Valparaíso"],"Casanare":["Aguazul","Chámeza","Hato Corozal","La Salina","Maní","Monterrey","Nunchía","Orocué","Paz de Ariporo","Pore","Recetor","Sabanalarga","San Luis de Palenque","Sácama","Tauramena","Trinidad","Támara","Villanueva","Yopal"],"Cauca":["Almaguer","Argelia","Balboa","Bolívar","Buenos Aires","Cajibío","Caldono","Caloto","Corinto","El Tambo","Florencia","Guachené","Guapí","Inzá","Jambaló","La Sierra","La Vega","López de Micay","Mercaderes","Miranda","Morales","Padilla","Patía","Piamonte","Piendamó","Popayán","Puerto Tejada","Puracé","Páez","Rosas","San Sebastián","Santa Rosa","Santander de Quilichao","Silvia","Sotará","Sucre","Suárez","Timbiquí","Timbío","Toribío","Totoró","Villa Rica"],"Cesar":["Aguachica","Agustín Codazzi","Astrea","Becerril","Bosconia","Chimichagua","Chiriguaná","Curumaní","El Copey","El Paso","Gamarra","González","La Gloria (Cesar)","La Jagua de Ibirico","La Paz","Manaure Balcón del Cesar","Pailitas","Pelaya","Pueblo Bello","Río de Oro","San Alberto","San Diego","San Martín","Tamalameque","Valledupar"],"Chocó":["Acandí","Alto Baudó","Bagadó","Bahía Solano","Bajo Baudó","Bojayá","Cantón de San Pablo","Condoto","Cértegui","El Atrato","El Carmen de Atrato","El Carmen del Darién","Istmina","Juradó","Litoral de San Juan","Lloró","Medio Atrato","Medio Baudó","Medio San Juan","Nuquí","Nóvita","Quibdó","Riosucio","Río Iró","Río Quito","San José del Palmar","Sipí","Tadó","Unguía","Unión Panamericana"],"Cundinamarca":["Agua de Dios","Albán","Anapoima","Anolaima","Apulo","Arbeláez","Beltrán","Bituima","Bogotá","Bojacá","Cabrera","Cachipay","Cajicá","Caparrapí","Carmen de Carupa","Chaguaní","Chipaque","Choachí","Chocontá","Chía","Cogua","Cota","Cucunubá","Cáqueza","El Colegio","El Peñón","El Rosal","Facatativá","Fosca","Funza","Fusagasugá","Fómeque","Fúquene","Gachalá","Gachancipá","Gachetá","Gama","Girardot","Granada","Guachetá","Guaduas","Guasca","Guataquí","Guatavita","Guayabal de Síquima","Guayabetal","Gutiérrez","Jerusalén","Junín","La Calera","La Mesa","La Palma","La Peña","La Vega","Lenguazaque","Machetá","Madrid","Manta","Medina","Mosquera","Nariño","Nemocón","Nilo","Nimaima","Nocaima","Pacho","Paime","Pandi","Paratebueno","Pasca","Puerto Salgar","Pulí","Quebradanegra","Quetame","Quipile","Ricaurte","San Antonio del Tequendama","San Bernardo","San Cayetano","San Francisco","San Juan de Rioseco","Sasaima","Sesquilé","Sibaté","Silvania","Simijaca","Soacha","Sopó","Subachoque","Suesca","Supatá","Susa","Sutatausa","Tabio","Tausa","Tena","Tenjo","Tibacuy","Tibirita","Tocaima","Tocancipá","Topaipí","Ubalá","Ubaque","Ubaté","Une","Venecia","Vergara","Vianí","Villagómez","Villapinzón","Villeta","Viotá","Yacopí","Zipacón","Zipaquirá","Útica"],"Córdoba":["Ayapel","Buenavista","Canalete","Cereté","Chimá","Chinú","Ciénaga de Oro","Cotorra","La Apartada","Lorica","Los Córdobas","Momil","Montelíbano","Montería","Moñitos","Planeta Rica","Pueblo Nuevo","Puerto Escondido","Puerto Libertador","Purísima","Sahagún","San Andrés de Sotavento","San Antero","San Bernardo del Viento","San Carlos","San José de Uré","San Pelayo","Tierralta","Tuchín","Valencia"],"Guainía":["Inírida"],"Guaviare":["Calamar","El Retorno","Miraflores","San José del Guaviare"],"Huila":["Acevedo","Agrado","Aipe","Algeciras","Altamira","Baraya","Campoalegre","Colombia","El Pital","Elías","Garzón","Gigante","Guadalupe","Hobo","Isnos","La Argentina","La Plata","Neiva","Nátaga","Oporapa","Paicol","Palermo","Palestina","Pitalito","Rivera","Saladoblanco","San Agustín","Santa María","Suaza","Tarqui","Tello","Teruel","Tesalia","Timaná","Villavieja","Yaguará","Íquira"],"La Guajira":["Albania","Barrancas","Dibulla","Distracción","El Molino","Fonseca","Hatonuevo","La Jagua del Pilar","Maicao","Manaure","Riohacha","San Juan del Cesar","Uribia","Urumita","Villanueva"],"Magdalena":["Algarrobo","Aracataca","Ariguaní","Cerro de San Antonio","Chibolo","Ciénaga","Concordia","El Banco","El Piñón","El Retén","Fundación","Guamal","Nueva Granada","Pedraza","Pijiño del Carmen","Pivijay","Plato","Pueblo Viejo","Remolino","Sabanas de San Ángel","Salamina","San Sebastián de Buenavista","San Zenón","Santa Ana","Santa Bárbara de Pinto","Santa Marta","Sitionuevo","Tenerife","Zapayán","Zona Bananera"],"Meta":["Acacías","Barranca de Upía","Cabuyaro","Castilla la Nueva","Cubarral","Cumaral","El Calvario","El Castillo","El Dorado","Fuente de Oro","Granada","Guamal","La Macarena","La Uribe","Lejanías","Mapiripán","Mesetas","Puerto Concordia","Puerto Gaitán","Puerto Lleras","Puerto López","Puerto Rico","Restrepo","San Carlos de Guaroa","San Juan de Arama","San Juanito","San Martín","Villavicencio","Vista Hermosa"],"Nariño":["Aldana","Ancuyá","Arboleda","Barbacoas","Belén","Buesaco","Chachagüí","Colón","Consacá","Contadero","Cuaspud","Cumbal","Cumbitara","Córdoba","El Charco","El Peñol","El Rosario","El Tablón","El Tambo","Francisco Pizarro","Funes","Guachucal","Guaitarilla","Gualmatán","Iles","Imués","Ipiales","La Cruz","La Florida","La Llanada","La Tola","La Unión","Leiva","Linares","Los Andes","Magüí Payán","Mallama","Mosquera","Nariño","Olaya Herrera","Ospina","Pasto","Policarpa","Potosí","Providencia","Puerres","Pupiales","Ricaurte","Roberto Payán","Samaniego","San Bernardo","San José de Albán","San Lorenzo","San Pablo","San Pedro de Cartago","Sandoná","Santa Bárbara","Santacruz","Sapuyes","Taminango","Tangua","Tumaco","Túquerres","Yacuanquer"],"Norte de Santander":["Arboledas","Bochalema","Bucarasica","Chinácota","Chitagá","Convención","Cucutilla","Cáchira","Cácota","Cúcuta","Duranía","El Carmen","El Tarra","El Zulia","Gramalote","Hacarí","Herrán","La Esperanza","La Playa de Belén","Labateca","Los Patios","Lourdes","Mutiscua","Ocaña","Pamplona","Pamplonita","Puerto Santander","Ragonvalia","Salazar de Las Palmas","San Calixto","San Cayetano","Santiago","Santo Domingo de Silos","Sardinata","Teorama","Tibú","Toledo","Villa Caro","Villa del Rosario","Ábrego"],"Putumayo":["Colón","Mocoa","Orito","Puerto Asís","Puerto Caicedo","Puerto Guzmán","Puerto Leguízamo","San Francisco","San Miguel","Santiago","Sibundoy","Valle del Guamuez","Villagarzón"],"Quindío":["Armenia","Buenavista","Calarcá","Circasia","Córdoba","Filandia","Génova","La Tebaida","Montenegro","Pijao","Quimbaya","Salento"],"Risaralda":["Apía","Balboa","Belén de Umbría","Dosquebradas","Guática","La Celia","La Virginia","Marsella","Mistrató","Pereira","Pueblo Rico","Quinchía","Santa Rosa de Cabal","Santuario"],"San Andrés y Providencia":["Providencia y Santa Catalina Islas","San Andrés"],"Santander":["Aguada","Albania","Aratoca","Barbosa","Barichara","Barrancabermeja","Betulia","Bolívar","Bucaramanga","Cabrera","California","Capitanejo","Carcasí","Cepitá","Cerrito","Charalá","Charta","Chima","Chipatá","Cimitarra","Concepción","Confines","Contratación","Coromoro","Curití","El Carmen de Chucurí","El Guacamayo","El Peñón","El Playón","El Socorro","Encino","Enciso","Floridablanca","Florián","Galán","Girón","Guaca","Guadalupe","Guapotá","Guavatá","Gámbita","Güepsa","Hato","Jesús María","Jordán","La Belleza","La Paz","Landázuri","Lebrija","Los Santos","Macaravita","Matanza","Mogotes","Molagavita","Málaga","Ocamonte","Oiba","Onzaga","Palmar","Palmas del Socorro","Piedecuesta","Pinchote","Puente Nacional","Puerto Parra","Puerto Wilches","Páramo","Rionegro","Sabana de Torres","San Andrés","San Benito","San Gil","San Joaquín","San José de Miranda","San Miguel","San Vicente de Chucurí","Santa Bárbara","Santa Helena del Opón","Simacota","Suaita","Sucre","Suratá","Tona","Valle de San José","Vetas","Villanueva","Vélez","Zapatoca"],"Sucre":["Buenavista","Caimito","Chalán","Colosó","Corozal","Coveñas","El Roble","Galeras","Guaranda","La Unión","Los Palmitos","Majagual","Morroa","Ovejas","Sampués","San Antonio de Palmito","San Benito Abad","San Juan de Betulia","San Marcos","San Onofre","San Pedro","Sincelejo","Sincé","Sucre","Tolú","Tolú Viejo"],"Tolima":["Alpujarra","Alvarado","Ambalema","Anzoátegui","Armero","Ataco","Cajamarca","Carmen de Apicalá","Casabianca","Chaparral","Coello","Coyaima","Cunday","Dolores","El Espinal","Falán","Flandes","Fresno","Guamo","Herveo","Honda","Ibagué","Icononzo","Lérida","Líbano","Mariquita","Melgar","Murillo","Natagaima","Ortega","Palocabildo","Piedras","Planadas","Prado","Purificación","Rioblanco","Roncesvalles","Rovira","Saldaña","San Antonio","San Luis","Santa Isabel","Suárez","Valle de San Juan","Venadillo","Villahermosa","Villarrica"],"Valle del Cauca":["Alcalá","Andalucía","Ansermanuevo","Argelia","Bolívar","Buenaventura","Buga","Bugalagrande","Caicedonia","Cali","Calima","Candelaria","Cartago","Dagua","El Cairo","El Cerrito","El Dovio","El Águila","Florida","Ginebra","Guacarí","Jamundí","La Cumbre","La Unión","La Victoria","Obando","Palmira","Pradera","Restrepo","Riofrío","Roldanillo","San Pedro","Sevilla","Toro","Trujillo","Tuluá","Ulloa","Versalles","Vijes","Yotoco","Yumbo","Zarzal"],"Vaupés":["Carurú","Mitú","Taraira"],"Vichada":["Cumaribo","La Primavera","Puerto Carreño","Santa Rosalía"],"Bogotá D.C.":["Bogotá D.C."]};
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const depSel = document.getElementById('departamento');
+    DEPARTAMENTOS.forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d; opt.textContent = d;
+      depSel.appendChild(opt);
+    });
+    document.getElementById('fecha').valueAsDate = new Date();
+    setupMunicipioDependiente();
+    setupConditionals();
+    setupStepperHighlight();
+    setupFileDrop('fileDrop', 'evidencia', 'fileName');
+    setupFileDrop('fileDropAv', 'audiovisual', 'fileNameAv');
+    setupBeneficiariosCheck();
+    setupFormSubmit();
+  });
+
+  function setupMunicipioDependiente() {
+    const depSel = document.getElementById('departamento');
+    const munInput = document.getElementById('municipio');
+    const datalist = document.getElementById('municipios-list');
+
+    const cargarMunicipios = () => {
+      const dep = depSel.value;
+      datalist.innerHTML = '';
+      munInput.value = '';
+
+      if (!dep || !MUNICIPIOS[dep]) {
+        munInput.disabled = true;
+        munInput.placeholder = 'Selecciona primero el departamento';
+        return;
+      }
+      munInput.disabled = false;
+      munInput.placeholder = 'Escribe para filtrar (' + MUNICIPIOS[dep].length + ' municipios)';
+      MUNICIPIOS[dep].forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m;
+        datalist.appendChild(opt);
+      });
+    };
+
+    depSel.addEventListener('change', cargarMunicipios);
+
+    // Validar que el municipio escrito pertenezca al departamento
+    munInput.addEventListener('blur', () => {
+      const dep = depSel.value;
+      if (!dep || !munInput.value) return;
+      const lista = MUNICIPIOS[dep] || [];
+      const match = lista.find(m => m.toLowerCase() === munInput.value.trim().toLowerCase());
+      if (match) {
+        munInput.value = match; // normaliza mayúsculas/tildes
+        munInput.setCustomValidity('');
+      } else {
+        munInput.setCustomValidity('Selecciona un municipio válido del departamento ' + dep + '.');
+      }
+    });
+    munInput.addEventListener('input', () => munInput.setCustomValidity(''));
+  }
+
+  function setupConditionals() {
+    // Voluntarios solo si tipo gestión es voluntariado
+    const tipoGestion = document.getElementById('tipoGestion');
+    const condVol = document.getElementById('cond-voluntarios');
+    const inputVol = document.getElementById('voluntarios');
+    tipoGestion.addEventListener('change', () => {
+      const esVol = tipoGestion.value.startsWith('Voluntariado');
+      condVol.classList.toggle('show', esVol);
+      inputVol.required = esVol;
+      if (!esVol) inputVol.value = '';
+    });
+
+    // Actividad "Otra"
+    const actividad = document.getElementById('actividad');
+    const condOtra = document.getElementById('cond-otraActividad');
+    const inputOtra = document.getElementById('otraActividad');
+    actividad.addEventListener('change', () => {
+      const esOtra = actividad.value === '__OTRA__';
+      condOtra.classList.toggle('show', esOtra);
+      inputOtra.required = esOtra;
+      if (!esOtra) inputOtra.value = '';
+    });
+
+    // Tipo de vínculo solo ajusta las sugerencias del campo Nombre de la alianza (que está siempre visible)
+    const tipoVinculo = document.getElementById('tipoVinculo');
+    const inpNombre = document.getElementById('nombreAlianza');
+    const datalistAliados = document.getElementById('aliados-list');
+
+    const cargarSugerencias = (lista) => {
+      datalistAliados.innerHTML = '';
+      lista.forEach(a => {
+        const opt = document.createElement('option');
+        opt.value = a;
+        datalistAliados.appendChild(opt);
+      });
+    };
+
+    tipoVinculo.addEventListener('change', () => {
+      datalistAliados.innerHTML = '';
+      if (tipoVinculo.value === 'Alianza') {
+        cargarSugerencias(ALIANZAS);
+      } else if (tipoVinculo.value === 'Articulación') {
+        cargarSugerencias(ARTICULACIONES);
+      } else if (tipoVinculo.value === 'No aplica') {
+        inpNombre.value = 'NA';
+      }
+    });
+  }
+
+  function setupBeneficiariosCheck() {
+    const total = document.getElementById('totalBenef');
+    const muj = document.getElementById('mujeres');
+    const hom = document.getElementById('hombres');
+    const hint = document.getElementById('benefHint');
+    const hintMsg = document.getElementById('benefHintMsg');
+    const validar = () => {
+      const t = parseInt(total.value) || 0;
+      const m = parseInt(muj.value) || 0;
+      const h = parseInt(hom.value) || 0;
+      if (t > 0 && (m + h) > t) {
+        hintMsg.textContent = `Mujeres (${m}) + Hombres (${h}) = ${m+h}, mayor que el total (${t}). Revisa los números.`;
+        hint.style.display = 'block';
+      } else if (t > 0 && (m + h) > 0 && (m + h) < t) {
+        hintMsg.textContent = `Hay ${t - (m+h)} beneficiarios sin clasificar por género (puede ser correcto si no se discriminó).`;
+        hint.style.display = 'block';
+      } else {
+        hint.style.display = 'none';
+      }
+    };
+    [total, muj, hom].forEach(el => el.addEventListener('input', validar));
+  }
+
+  function setupStepperHighlight() {
+    const sections = document.querySelectorAll('.section');
+    const steps = document.querySelectorAll('.step');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const num = entry.target.id.split('-')[1];
+          steps.forEach(s => s.classList.toggle('active', s.dataset.step === num));
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+    sections.forEach(s => observer.observe(s));
+  }
+
+  function setupFileDrop(dropId, inputId, nameId) {
+    const drop = document.getElementById(dropId);
+    const input = document.getElementById(inputId);
+    const nameEl = document.getElementById(nameId);
+    input.addEventListener('change', () => {
+      if (input.files && input.files[0]) {
+        const f = input.files[0];
+        if (f.size > 10 * 1024 * 1024) {
+          alert('El archivo supera los 10 MB. Por favor sube uno más liviano.');
+          input.value = '';
+          drop.classList.remove('has-file');
+          return;
+        }
+        drop.classList.add('has-file');
+        nameEl.textContent = f.name + ' (' + (f.size / 1024 / 1024).toFixed(2) + ' MB)';
+      } else {
+        drop.classList.remove('has-file');
+      }
+    });
+    ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {
+      e.preventDefault();
+      drop.style.borderColor = 'var(--tigo-blue)';
+      drop.style.background = 'var(--tigo-blue-50)';
+    }));
+    ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
+      e.preventDefault();
+      if (!drop.classList.contains('has-file')) {
+        drop.style.borderColor = '';
+        drop.style.background = '';
+      }
+    }));
+  }
+
+  function setupFormSubmit() {
+    const form = document.getElementById('reportForm');
+    const btn = document.getElementById('btnSubmit');
+    const errorBanner = document.getElementById('errorBanner');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBanner.classList.remove('show');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const sActividad = document.getElementById('actividad').value;
+      const actividadFinal = sActividad === '__OTRA__'
+        ? document.getElementById('otraActividad').value
+        : sActividad;
+
+      const tipoVinculo = document.getElementById('tipoVinculo').value;
+      let nombreAliado = 'NA';
+      if (tipoVinculo === 'Alianza' || tipoVinculo === 'Articulación') {
+        nombreAliado = (document.getElementById('nombreAlianza').value || '').trim() || 'NA';
+      }
+
+      const payload = new FormData();
+      payload.append('Nombre Líder Territorial', document.getElementById('gestor').value);
+      payload.append('Tipo de Gestión', document.getElementById('tipoGestion').value);
+      payload.append('Fecha de la actividad', document.getElementById('fecha').value);
+      payload.append('Región', document.getElementById('region').value);
+      payload.append('Departamento', document.getElementById('departamento').value);
+      payload.append('Municipio', document.getElementById('municipio').value);
+      payload.append('Comuna / Corregimiento / Localidad', document.getElementById('comuna').value);
+      payload.append('Nivel de Alianza', document.getElementById('nivelAlianza').value);
+      payload.append('Alianza/Articulación', tipoVinculo);
+      payload.append('Tipo de Alianza', document.getElementById('tipoAlianza').value);
+      payload.append('Nombre Alianza', nombreAliado);
+      payload.append('Tipo de Institución', document.getElementById('tipoInst').value);
+      payload.append('Nombre de Institución', document.getElementById('nombreInst').value);
+      payload.append('Dirección', document.getElementById('direccion').value);
+      payload.append('Estrato', document.getElementById('estrato').value);
+      payload.append('Tipo de Organización', document.getElementById('tipoOrg').value);
+      payload.append('Zona', document.getElementById('zona').value);
+      payload.append('Tipo de Intervención', document.getElementById('tipoIntervencion').value);
+      payload.append('Público', document.getElementById('publico').value);
+      payload.append('Tipo de actividad o proyecto', actividadFinal);
+      payload.append('Número de actividades', document.getElementById('numActividades').value);
+      payload.append('Total beneficiarios', document.getElementById('totalBenef').value);
+      payload.append('Mujeres Beneficiadas', document.getElementById('mujeres').value);
+      payload.append('Hombres Beneficiados', document.getElementById('hombres').value);
+      payload.append('Número de Voluntarios', document.getElementById('voluntarios').value || '0');
+      payload.append('Comentarios', document.getElementById('comentarios').value);
+
+      const fileInput = document.getElementById('evidencia');
+      if (fileInput.files && fileInput.files[0]) {
+        payload.append('Adjunta aquí tu evidencia', fileInput.files[0]);
+      }
+      const avInput = document.getElementById('audiovisual');
+      if (avInput.files && avInput.files[0]) {
+        payload.append('Registro audiovisual', avInput.files[0]);
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Enviando...';
+
+      try {
+        if (N8N_WEBHOOK_URL === 'REEMPLAZAR_CON_TU_WEBHOOK_URL') {
+          await new Promise(r => setTimeout(r, 1200));
+          console.log('[DEMO] Payload:', Object.fromEntries(payload));
+        } else {
+          const res = await fetch(N8N_WEBHOOK_URL, { method: 'POST', body: payload });
+          if (!res.ok) throw new Error('Error en el servidor: ' + res.status);
+        }
+
+        showSuccess({
+          gestor: document.getElementById('gestor').value,
+          actividad: actividadFinal,
+          fecha: document.getElementById('fecha').value,
+          ubicacion: document.getElementById('municipio').value + ', ' + document.getElementById('departamento').value,
+          institucion: document.getElementById('nombreInst').value,
+          numActividades: document.getElementById('numActividades').value,
+          totalBenef: document.getElementById('totalBenef').value,
+          aliado: nombreAliado
+        });
+
+      } catch (err) {
+        console.error(err);
+        errorBanner.textContent = 'Hubo un error al enviar el reporte. Verifica tu conexión y vuelve a intentar. Si persiste, escríbenos a soporte@masportic.onmicrosoft.com.';
+        errorBanner.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Enviar reporte';
+      }
+    });
+  }
+
+  function showSuccess(data) {
+    document.getElementById('form-view').style.display = 'none';
+    document.querySelector('.hero').style.display = 'none';
+    const summary = document.getElementById('successSummary');
+    summary.innerHTML = `
+      <dt>Líder territorial</dt><dd>${escapeHtml(data.gestor)}</dd>
+      <dt>Actividad</dt><dd>${escapeHtml(data.actividad)}</dd>
+      <dt>Fecha</dt><dd>${escapeHtml(data.fecha)}</dd>
+      <dt>Ubicación</dt><dd>${escapeHtml(data.ubicacion)}</dd>
+      <dt>Institución</dt><dd>${escapeHtml(data.institucion)}</dd>
+      <dt>Número de actividades</dt><dd>${data.numActividades}</dd>
+      <dt>Total beneficiarios</dt><dd>${data.totalBenef}</dd>
+      <dt>Aliado</dt><dd>${escapeHtml(data.aliado)}</dd>
+    `;
+    document.getElementById('success-view').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/[&<>"']/g, m => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[m]));
+  }
+  </script>
+</body>
+</html>
