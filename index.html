@@ -445,7 +445,8 @@
               <span class="section-tag">Categoría 1</span>
               <h2 class="section-title">Identificación</h2>
             </div>
-            <p class="section-desc">Identifica al gestor social y el tipo de gestión reportada. El año, mes y día se calculan a partir de la fecha.</p>
+            <p class="section-desc">Identifica al líder territorial, persona replicadora o facilitador que realiza la actividad, y el día/mes/año en el que se implementa.
+</p>
 
             <div class="field">
               <label for="tipoGestion">Tipo de Gestión<span class="req">*</span></label>
@@ -462,29 +463,27 @@
             </div>
 
             <div class="field">
-              <label for="gestor">Nombre Líder Territorial<span class="req">*</span></label>
+              <label for="gestor">Nombre de persona facilitadora<span class="req">*</span></label>
               <select id="gestor" name="gestor" required>
                 <option value="">Selecciona tu nombre</option>
                 <option>Alexandra Villa</option>
                 <option>Angela Quintero</option>
-                <option>Carolina Escobar</option>
+                <option>Álvaro Gil</option>
+                <option>Malka Montes</option>
                 <option>Tatiana Joiro</option>
-                <option>Daniela Díaz</option>
                 <option>Eliana Camargo</option>
                 <option>Monica Molano</option>
                 <option>Jeimy Rubio</option>
                 <option>Julian Burgos</option>
                 <option>Juliana Rivera</option>
                 <option>Lilia Davino</option>
-                <option>Luisa Malaver</option>
                 <option>Marjoan Robayo</option>
-                <option>Nataly Valencia</option>
               </select>
             </div>
 
             <div class="field">
               <label for="fecha">Fecha de la actividad<span class="req">*</span>
-                <span class="label-hint">De aquí se obtienen el año, el mes y el día para la base de datos.</span>
+                <span class="label-hint">Seleccionar día/mes/año en el que se realiza la actividad</span>
               </label>
               <input type="date" id="fecha" name="fecha" required />
             </div>
@@ -496,7 +495,7 @@
               <span class="section-tag">Categoría 2</span>
               <h2 class="section-title">Ubicación geográfica</h2>
             </div>
-            <p class="section-desc">Geolocaliza tu intervención para los mapas del tablero.</p>
+            <p class="section-desc">Geolocaliza dónde se realiza la actividad pedagógica para visualizar en los tableros de reporte.</p>
 
             <div class="field-row">
               <div class="field">
@@ -543,8 +542,8 @@
             </div>
 
             <div class="info-callout">
-              <strong>Alianza:</strong> vínculo formal con acuerdo escrito.<br>
-              <strong>Articulación:</strong> trabajo coordinado sin acuerdo formal.
+              <strong>Alianza:</strong> vínculo formal entre Tigo y una institución, es un acuerdo escrito y firmado por las partes (memorando de entendimiento, carta de intención, etc.).<br>
+              <strong>Articulación:</strong> trabajo coordinado sin acuerdo formal entre Tigo y una institución.
             </div>
 
             <div class="field-row">
@@ -593,7 +592,7 @@
             </div>
 
             <div class="field">
-              <label for="tipoInst">Tipo de Institución<span class="req">*</span></label>
+              <label for="tipoInst">Tipo de institución en la que se realiza la actividad<span class="req">*</span></label>
               <select id="tipoInst" name="tipoInst" required>
                 <option value="">Selecciona</option>
                 <option>Entidades Gubernamentales</option>
@@ -607,7 +606,7 @@
             </div>
 
             <div class="field">
-              <label for="nombreInst">Nombre de la Institución<span class="req">*</span></label>
+              <label for="nombreInst">Nombre de la institución en la que se realiza la actividad<span class="req">*</span></label>
               <input type="text" id="nombreInst" name="nombreInst" required />
             </div>
 
@@ -631,9 +630,9 @@
           <section class="section" id="sec-4">
             <div class="section-header">
               <span class="section-tag">Categoría 4</span>
-              <h2 class="section-title">Clasificación de organización</h2>
+              <h2 class="section-title">Clasificación de la institución</h2>
             </div>
-            <p class="section-desc">Naturaleza de la organización y modalidad de la intervención.</p>
+            <p class="section-desc">Naturaleza de la institución en la que se implementa la actividad pedagógica y la modalidad de la intervención.</p>
 
             <div class="field-row">
               <div class="field">
@@ -674,7 +673,7 @@
               <span class="section-tag">Categoría 5</span>
               <h2 class="section-title">Resultados, actividades y evidencias</h2>
             </div>
-            <p class="section-desc">Cómo y a quiénes llegó tu actividad, más los soportes que la respaldan.</p>
+            <p class="section-desc">Incluye la información sobre el impacto de tu actividad pedagógica en el público al que se dirige; así como los soportes de su implementación.</p>
 
             <div class="field">
               <label for="publico">Público<span class="req">*</span></label>
@@ -695,7 +694,7 @@
 
             <div class="field">
               <label for="actividad">Tipo de actividad o proyecto<span class="req">*</span>
-                <span class="label-hint">Selecciona la actividad del catálogo. Si es nueva, elige "Otra".</span>
+                <span class="label-hint">Selecciona la actividad del portafolio. Si es nueva, elige "Otra"</span>
               </label>
               <select id="actividad" name="actividad" required>
                 <option value="">Selecciona la actividad</option>
@@ -777,7 +776,7 @@
               <div class="file-drop" id="fileDrop">
                 <input type="file" id="evidencia" name="evidencia" accept=".jpg,.jpeg,.png,.pdf,.docx,.xlsx" required />
                 <div class="file-drop-title">Haz clic o arrastra un archivo aquí</div>
-                <div class="file-drop-hint">Fotos, pantallazos, listados de asistencia, soportes. JPG, PNG, PDF, DOCX, XLSX. Máximo 10 MB.</div>
+                <div class="file-drop-hint">Formato de certificado de la actividad firmado y/o listado de asistencia, según el caso. PDF, XLSX.</div>
                 <div class="file-drop-name" id="fileName"></div>
               </div>
             </div>
