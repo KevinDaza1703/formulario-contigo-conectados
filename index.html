@@ -295,6 +295,16 @@
     }
     .info-callout strong { color: var(--tigo-blue-deep); font-weight: 700; }
 
+    .virtual-toggle {
+      margin-bottom: 18px;
+      padding: 14px 16px;
+      background: var(--tigo-blue-50);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--tigo-blue);
+    }
+    .virtual-toggle label { margin-bottom: 8px; }
+    .virtual-toggle select { max-width: 320px; }
+
     .actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding-top: 8px; }
     .btn {
       font-family: inherit;
@@ -498,6 +508,16 @@
             </div>
             <p class="section-desc">Geolocaliza dónde se realiza la actividad pedagógica para visualizar en los tableros de reporte.</p>
 
+            <div class="field virtual-toggle">
+              <label for="esVirtual">¿La actividad fue completamente virtual?
+                <span class="label-hint">Si fue virtual, los campos de ubicación geográfica se llenarán automáticamente con "No Aplica".</span>
+              </label>
+              <select id="esVirtual">
+                <option value="No">No, tuvo lugar físico</option>
+                <option value="Si">Sí, fue completamente virtual</option>
+              </select>
+            </div>
+
             <div class="field-row">
               <div class="field">
                 <label for="region">Región<span class="req">*</span></label>
@@ -510,6 +530,7 @@
                   <option>Noroccidente</option>
                   <option>Oriente</option>
                   <option>Suroccidente</option>
+                  <option>No Aplica</option>
                 </select>
               </div>
               <div class="field">
@@ -892,6 +913,7 @@
     });
     document.getElementById('fecha').valueAsDate = new Date();
     setupMunicipioDependiente();
+    setupVirtualToggle();
     setupConditionals();
     setupStepperHighlight();
     setupFileDrop('fileDrop', 'evidencia', 'fileName');
@@ -933,13 +955,78 @@
       const lista = MUNICIPIOS[dep] || [];
       const match = lista.find(m => m.toLowerCase() === munInput.value.trim().toLowerCase());
       if (match) {
-        munInput.value = match; // normaliza mayúsculas/tildes
+        munInput.value = match;
         munInput.setCustomValidity('');
       } else {
         munInput.setCustomValidity('Selecciona un municipio válido del departamento ' + dep + '.');
       }
     });
     munInput.addEventListener('input', () => munInput.setCustomValidity(''));
+  }
+
+  function setupVirtualToggle() {
+    const esVirtual = document.getElementById('esVirtual');
+    const region = document.getElementById('region');
+    const departamento = document.getElementById('departamento');
+    const municipio = document.getElementById('municipio');
+    const comuna = document.getElementById('comuna');
+
+    let valoresPrevios = { region: '', departamento: '', municipio: '', comuna: '' };
+
+    esVirtual.addEventListener('change', () => {
+      if (esVirtual.value === 'Si') {
+        valoresPrevios.region = region.value;
+        valoresPrevios.departamento = departamento.value;
+        valoresPrevios.municipio = municipio.value;
+        valoresPrevios.comuna = comuna.value;
+
+        const opcionNA = (sel) => {
+          const existe = Array.from(sel.options).some(o => o.value === 'No Aplica');
+          if (!existe) {
+            const op = document.createElement('option');
+            op.value = 'No Aplica';
+            op.text = 'No Aplica';
+            sel.appendChild(op);
+          }
+        };
+        opcionNA(region);
+        opcionNA(departamento);
+
+        region.value = 'No Aplica';
+        departamento.value = 'No Aplica';
+        municipio.disabled = false;
+        municipio.value = 'No Aplica';
+        comuna.value = 'No Aplica';
+
+        region.disabled = true;
+        departamento.disabled = true;
+        municipio.readOnly = true;
+        comuna.readOnly = true;
+        region.style.opacity = '0.6';
+        departamento.style.opacity = '0.6';
+        municipio.style.opacity = '0.6';
+        comuna.style.opacity = '0.6';
+        municipio.style.cursor = 'not-allowed';
+        comuna.style.cursor = 'not-allowed';
+      } else {
+        region.disabled = false;
+        departamento.disabled = false;
+        municipio.readOnly = false;
+        comuna.readOnly = false;
+        region.style.opacity = '';
+        departamento.style.opacity = '';
+        municipio.style.opacity = '';
+        comuna.style.opacity = '';
+        municipio.style.cursor = '';
+        comuna.style.cursor = '';
+
+        region.value = valoresPrevios.region;
+        departamento.value = valoresPrevios.departamento;
+        departamento.dispatchEvent(new Event('change'));
+        municipio.value = valoresPrevios.municipio;
+        comuna.value = valoresPrevios.comuna;
+      }
+    });
   }
 
   function setupConditionals() {
