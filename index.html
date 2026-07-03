@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reporte de Actividades · Programa Contigo Conectados</title>
-  <meta name="description" content="Formulario oficial de reporte de actividades del programa Contigo Conectados. TIGO Colombia." />
+  <meta name="description" content="Formulario oficial de reporte de actividades del programa Contigo Conectados. Fundación MásPorTIC y TIGO Colombia." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -406,6 +406,7 @@
       <div class="brand-group">
         <span class="brand-logo brand-tigo">TIGO</span>
         <span class="brand-divider"></span>
+        <span class="brand-logo brand-mp">Fundación MásPorTIC</span>
       </div>
       <span class="header-meta">Programa Contigo Conectados</span>
     </div>
@@ -428,7 +429,7 @@
         </span>
         <span class="hero-meta-item">
           <span class="hero-meta-dot"></span>
-          Soporte: <a href="mailto:soporte@masportic.onmicrosoft.com">soporte@masportic.org</a>
+          Soporte: <a href="mailto:soporte@masportic.onmicrosoft.com">soporte@masportic.onmicrosoft.com</a>
         </span>
       </div>
     </div>
@@ -472,6 +473,29 @@
             </div>
 
             <div class="field">
+              <label for="estrategia">Estrategia<span class="req">*</span>
+                <span class="label-hint">Selecciona la estrategia del programa a la que corresponde esta actividad.</span>
+              </label>
+              <select id="estrategia" name="estrategia" required>
+                <option value="">Selecciona la estrategia</option>
+                <option>Estrategia 1: Sello Territorio Digital Seguro</option>
+                <option>Estrategia 2: Ruta nacional de formación masiva a Instituciones Educativas del Sello</option>
+                <option>Estrategia 3: Eventos virtuales y presenciales masivos</option>
+                <option>Estrategia 4: Cursos por WhatsApp para emprendedores y mujeres</option>
+                <option>Estrategia 5: Ecosistema Digital descargables tipo cápsulas educativas cortas.</option>
+                <option>Estrategia 6: Aliados con QR y enlaces trazables a cápsulas educativas cortas</option>
+                <option>Estrategia 7: Email marketing y SMS</option>
+                <option>Estrategia 8: Estrategia digital y pauta</option>
+                <option value="__OTRA_ESTRATEGIA__">Estrategia 9: Otras estrategias ¿Cuál?</option>
+              </select>
+            </div>
+
+            <div class="field conditional" id="cond-otraEstrategia">
+              <label for="otraEstrategia">Nombre de la otra estrategia<span class="req">*</span></label>
+              <input type="text" id="otraEstrategia" name="otraEstrategia" placeholder="Escribe el nombre de la estrategia" />
+            </div>
+
+            <div class="field">
               <label for="gestor">Nombre de persona facilitadora<span class="req">*</span></label>
               <select id="gestor" name="gestor" required>
                 <option value="">Selecciona tu nombre</option>
@@ -482,7 +506,6 @@
                 <option>Tatiana Joiro</option>
                 <option>Eliana Camargo</option>
                 <option>Kevin Daza</option>
-                <option>MásPorTic</option>
                 <option>Monica Molano</option>
                 <option>Jeimy Rubio</option>
                 <option>Julian Burgos</option>
@@ -523,10 +546,11 @@
                 <label for="region">Región<span class="req">*</span></label>
                 <select id="region" name="region" required>
                   <option value="">Selecciona</option>
-                  <option>Bogotá - Centro</option>
+                  <option>Centro</option>
                   <option>Costa</option>
-                  <option>Andina</option>
+                  <option>Eje Cafetero</option>
                   <option>Nacional</option>
+                  <option>Noroccidente</option>
                   <option>Oriente</option>
                   <option>Suroccidente</option>
                   <option>No Aplica</option>
@@ -701,10 +725,10 @@
               <select id="publico" name="publico" required>
                 <option value="">Selecciona</option>
                 <option>Adolescentes</option>
-                <option>Personas Mayores</option>
+                <option>Adultos Mayores</option>
                 <option>Emprendedores</option>
                 <option>Jóvenes</option>
-                <option>Docentes</option>
+                <option>Maestros</option>
                 <option>Mujeres</option>
                 <option>Niños 10-12 años</option>
                 <option>Niños 6-9 años</option>
@@ -865,7 +889,6 @@
     'Santander','Sucre','Tolima','Valle del Cauca','Vaupés','Vichada'
   ];
 
-  // Sugerencias de aliados conocidos (el usuario puede escribir uno nuevo)
   const ALIANZAS = [
     'Gobernación de Antioquia',
     'Secretaría de Educación Municipal de Palmira',
@@ -900,7 +923,6 @@
     'Universidad del Atlántico'
   ];
 
-  // Municipios por departamento (fuente: DANE / dataset oficial Colombia)
   const MUNICIPIOS = {"Amazonas":["Leticia","Puerto Nariño"],"Antioquia":["Abejorral","Abriaquí","Alejandría","Amagá","Amalfi","Andes","Angelópolis","Angostura","Anorí","Anzá","Apartadó","Arboletes","Argelia","Armenia","Barbosa","Bello","Belmira","Betania","Betulia","Briceño","Buriticá","Caicedo","Caldas","Campamento","Caracolí","Caramanta","Carepa","Carolina del Príncipe","Caucasia","Cañasgordas","Chigorodó","Cisneros","Ciudad Bolívar","Cocorná","Concepción","Concordia","Copacabana","Cáceres","Dabeiba","Donmatías","Ebéjico","El Bagre","El Carmen de Viboral","El Peñol","El Retiro","El Santuario","Entrerríos","Envigado","Fredonia","Frontino","Giraldo","Girardota","Granada","Guadalupe","Guarne","Guatapé","Gómez Plata","Heliconia","Hispania","Itagüí","Ituango","Jardín","Jericó","La Ceja","La Estrella","La Pintada","La Unión","Liborina","Maceo","Marinilla","Medellín","Montebello","Murindó","Mutatá","Nariño","Nechí","Necoclí","Olaya","Peque","Pueblorrico","Puerto Berrío","Puerto Nare","Puerto Triunfo","Remedios","Rionegro","Sabanalarga","Sabaneta","Salgar","San Andrés de Cuerquia","San Carlos","San Francisco","San Jerónimo","San José de la Montaña","San Juan de Urabá","San Luis","San Pedro de Urabá","San Pedro de los Milagros","San Rafael","San Roque","San Vicente","Santa Bárbara","Santa Fe de Antioquia","Santa Rosa de Osos","Santo Domingo","Segovia","Sonsón","Sopetrán","Tarazá","Tarso","Titiribí","Toledo","Turbo","Támesis","Uramita","Urrao","Valdivia","Valparaíso","Vegachí","Venecia","Vigía del Fuerte","Yalí","Yarumal","Yolombó","Yondó","Zaragoza"],"Arauca":["Arauca","Arauquita","Cravo Norte","Fortul","Puerto Rondón","Saravena","Tame"],"Atlántico":["Baranoa","Barranquilla","Campo de la Cruz","Candelaria","Galapa","Juan de Acosta","Luruaco","Malambo","Manatí","Palmar de Varela","Piojó","Polonuevo","Ponedera","Puerto Colombia","Repelón","Sabanagrande","Sabanalarga","Santa Lucía","Santo Tomás","Soledad","Suán","Tubará","Usiacurí"],"Bolívar":["Achí","Altos del Rosario","Arenal","Arjona","Arroyohondo","Barranco de Loba","Brazuelo de Papayal","Calamar","Cantagallo","Cartagena de Indias","Cicuco","Clemencia","Córdoba","El Carmen de Bolívar","El Guamo","El Peñón","Hatillo de Loba","Magangué","Mahates","Margarita","María la Baja","Mompós","Montecristo","Morales","Norosí","Pinillos","Regidor","Río Viejo","San Cristóbal","San Estanislao","San Fernando","San Jacinto","San Jacinto del Cauca","San Juan Nepomuceno","San Martín de Loba","San Pablo","Santa Catalina","Santa Rosa","Santa Rosa del Sur","Simití","Soplaviento","Talaigua Nuevo","Tiquisio","Turbaco","Turbaná","Villanueva","Zambrano"],"Boyacá":["Almeida","Aquitania","Arcabuco","Belén","Berbeo","Betéitiva","Boavita","Boyacá","Briceño","Buenavista","Busbanzá","Caldas","Campohermoso","Cerinza","Chinavita","Chiquinquirá","Chiscas","Chita","Chitaraque","Chivatá","Chivor","Chíquiza","Ciénega","Coper","Corrales","Covarachía","Cubará","Cucaita","Cuítiva","Cómbita","Duitama","El Cocuy","El Espino","Firavitoba","Floresta","Gachantivá","Garagoa","Guacamayas","Guateque","Guayatá","Gámeza","Güicán","Iza","Jenesano","Jericó","La Capilla","La Uvita","La Victoria","Labranzagrande","Macanal","Maripí","Miraflores","Mongua","Monguí","Moniquirá","Motavita","Muzo","Nobsa","Nuevo Colón","Oicatá","Otanche","Pachavita","Paipa","Pajarito","Panqueba","Pauna","Paya","Paz del Río","Pesca","Pisba","Puerto Boyacá","Páez","Quípama","Ramiriquí","Rondón","Ráquira","Saboyá","Samacá","San Eduardo","San José de Pare","San Luis de Gaceno","San Mateo","San Miguel de Sema","San Pablo de Borbur","Santa María","Santa Rosa de Viterbo","Santa Sofía","Santana","Sativanorte","Sativasur","Siachoque","Soatá","Socha","Socotá","Sogamoso","Somondoco","Sora","Soracá","Sotaquirá","Susacón","Sutamarchán","Sutatenza","Sáchica","Tasco","Tenza","Tibaná","Tibasosa","Tinjacá","Tipacoque","Toca","Togüí","Tota","Tunja","Tununguá","Turmequé","Tuta","Tutazá","Tópaga","Ventaquemada","Villa de Leyva","Viracachá","Zetaquira","Úmbita"],"Caldas":["Aguadas","Anserma","Aranzazu","Belalcázar","Chinchiná","Filadelfia","La Dorada","La Merced","Manizales","Manzanares","Marmato","Marquetalia","Marulanda","Neira","Norcasia","Palestina","Pensilvania","Pácora","Riosucio","Risaralda","Salamina","Samaná","San José","Supía","Victoria","Villamaría","Viterbo"],"Caquetá":["Albania","Belén de los Andaquíes","Cartagena del Chairá","Curillo","El Doncello","El Paujil","Florencia","La Montañita","Milán","Morelia","Puerto Rico","San José del Fragua","San Vicente del Caguán","Solano","Solita","Valparaíso"],"Casanare":["Aguazul","Chámeza","Hato Corozal","La Salina","Maní","Monterrey","Nunchía","Orocué","Paz de Ariporo","Pore","Recetor","Sabanalarga","San Luis de Palenque","Sácama","Tauramena","Trinidad","Támara","Villanueva","Yopal"],"Cauca":["Almaguer","Argelia","Balboa","Bolívar","Buenos Aires","Cajibío","Caldono","Caloto","Corinto","El Tambo","Florencia","Guachené","Guapí","Inzá","Jambaló","La Sierra","La Vega","López de Micay","Mercaderes","Miranda","Morales","Padilla","Patía","Piamonte","Piendamó","Popayán","Puerto Tejada","Puracé","Páez","Rosas","San Sebastián","Santa Rosa","Santander de Quilichao","Silvia","Sotará","Sucre","Suárez","Timbiquí","Timbío","Toribío","Totoró","Villa Rica"],"Cesar":["Aguachica","Agustín Codazzi","Astrea","Becerril","Bosconia","Chimichagua","Chiriguaná","Curumaní","El Copey","El Paso","Gamarra","González","La Gloria (Cesar)","La Jagua de Ibirico","La Paz","Manaure Balcón del Cesar","Pailitas","Pelaya","Pueblo Bello","Río de Oro","San Alberto","San Diego","San Martín","Tamalameque","Valledupar"],"Chocó":["Acandí","Alto Baudó","Bagadó","Bahía Solano","Bajo Baudó","Bojayá","Cantón de San Pablo","Condoto","Cértegui","El Atrato","El Carmen de Atrato","El Carmen del Darién","Istmina","Juradó","Litoral de San Juan","Lloró","Medio Atrato","Medio Baudó","Medio San Juan","Nuquí","Nóvita","Quibdó","Riosucio","Río Iró","Río Quito","San José del Palmar","Sipí","Tadó","Unguía","Unión Panamericana"],"Cundinamarca":["Agua de Dios","Albán","Anapoima","Anolaima","Apulo","Arbeláez","Beltrán","Bituima","Bogotá","Bojacá","Cabrera","Cachipay","Cajicá","Caparrapí","Carmen de Carupa","Chaguaní","Chipaque","Choachí","Chocontá","Chía","Cogua","Cota","Cucunubá","Cáqueza","El Colegio","El Peñón","El Rosal","Facatativá","Fosca","Funza","Fusagasugá","Fómeque","Fúquene","Gachalá","Gachancipá","Gachetá","Gama","Girardot","Granada","Guachetá","Guaduas","Guasca","Guataquí","Guatavita","Guayabal de Síquima","Guayabetal","Gutiérrez","Jerusalén","Junín","La Calera","La Mesa","La Palma","La Peña","La Vega","Lenguazaque","Machetá","Madrid","Manta","Medina","Mosquera","Nariño","Nemocón","Nilo","Nimaima","Nocaima","Pacho","Paime","Pandi","Paratebueno","Pasca","Puerto Salgar","Pulí","Quebradanegra","Quetame","Quipile","Ricaurte","San Antonio del Tequendama","San Bernardo","San Cayetano","San Francisco","San Juan de Rioseco","Sasaima","Sesquilé","Sibaté","Silvania","Simijaca","Soacha","Sopó","Subachoque","Suesca","Supatá","Susa","Sutatausa","Tabio","Tausa","Tena","Tenjo","Tibacuy","Tibirita","Tocaima","Tocancipá","Topaipí","Ubalá","Ubaque","Ubaté","Une","Venecia","Vergara","Vianí","Villagómez","Villapinzón","Villeta","Viotá","Yacopí","Zipacón","Zipaquirá","Útica"],"Córdoba":["Ayapel","Buenavista","Canalete","Cereté","Chimá","Chinú","Ciénaga de Oro","Cotorra","La Apartada","Lorica","Los Córdobas","Momil","Montelíbano","Montería","Moñitos","Planeta Rica","Pueblo Nuevo","Puerto Escondido","Puerto Libertador","Purísima","Sahagún","San Andrés de Sotavento","San Antero","San Bernardo del Viento","San Carlos","San José de Uré","San Pelayo","Tierralta","Tuchín","Valencia"],"Guainía":["Inírida"],"Guaviare":["Calamar","El Retorno","Miraflores","San José del Guaviare"],"Huila":["Acevedo","Agrado","Aipe","Algeciras","Altamira","Baraya","Campoalegre","Colombia","El Pital","Elías","Garzón","Gigante","Guadalupe","Hobo","Isnos","La Argentina","La Plata","Neiva","Nátaga","Oporapa","Paicol","Palermo","Palestina","Pitalito","Rivera","Saladoblanco","San Agustín","Santa María","Suaza","Tarqui","Tello","Teruel","Tesalia","Timaná","Villavieja","Yaguará","Íquira"],"La Guajira":["Albania","Barrancas","Dibulla","Distracción","El Molino","Fonseca","Hatonuevo","La Jagua del Pilar","Maicao","Manaure","Riohacha","San Juan del Cesar","Uribia","Urumita","Villanueva"],"Magdalena":["Algarrobo","Aracataca","Ariguaní","Cerro de San Antonio","Chibolo","Ciénaga","Concordia","El Banco","El Piñón","El Retén","Fundación","Guamal","Nueva Granada","Pedraza","Pijiño del Carmen","Pivijay","Plato","Pueblo Viejo","Remolino","Sabanas de San Ángel","Salamina","San Sebastián de Buenavista","San Zenón","Santa Ana","Santa Bárbara de Pinto","Santa Marta","Sitionuevo","Tenerife","Zapayán","Zona Bananera"],"Meta":["Acacías","Barranca de Upía","Cabuyaro","Castilla la Nueva","Cubarral","Cumaral","El Calvario","El Castillo","El Dorado","Fuente de Oro","Granada","Guamal","La Macarena","La Uribe","Lejanías","Mapiripán","Mesetas","Puerto Concordia","Puerto Gaitán","Puerto Lleras","Puerto López","Puerto Rico","Restrepo","San Carlos de Guaroa","San Juan de Arama","San Juanito","San Martín","Villavicencio","Vista Hermosa"],"Nariño":["Aldana","Ancuyá","Arboleda","Barbacoas","Belén","Buesaco","Chachagüí","Colón","Consacá","Contadero","Cuaspud","Cumbal","Cumbitara","Córdoba","El Charco","El Peñol","El Rosario","El Tablón","El Tambo","Francisco Pizarro","Funes","Guachucal","Guaitarilla","Gualmatán","Iles","Imués","Ipiales","La Cruz","La Florida","La Llanada","La Tola","La Unión","Leiva","Linares","Los Andes","Magüí Payán","Mallama","Mosquera","Nariño","Olaya Herrera","Ospina","Pasto","Policarpa","Potosí","Providencia","Puerres","Pupiales","Ricaurte","Roberto Payán","Samaniego","San Bernardo","San José de Albán","San Lorenzo","San Pablo","San Pedro de Cartago","Sandoná","Santa Bárbara","Santacruz","Sapuyes","Taminango","Tangua","Tumaco","Túquerres","Yacuanquer"],"Norte de Santander":["Arboledas","Bochalema","Bucarasica","Chinácota","Chitagá","Convención","Cucutilla","Cáchira","Cácota","Cúcuta","Duranía","El Carmen","El Tarra","El Zulia","Gramalote","Hacarí","Herrán","La Esperanza","La Playa de Belén","Labateca","Los Patios","Lourdes","Mutiscua","Ocaña","Pamplona","Pamplonita","Puerto Santander","Ragonvalia","Salazar de Las Palmas","San Calixto","San Cayetano","Santiago","Santo Domingo de Silos","Sardinata","Teorama","Tibú","Toledo","Villa Caro","Villa del Rosario","Ábrego"],"Putumayo":["Colón","Mocoa","Orito","Puerto Asís","Puerto Caicedo","Puerto Guzmán","Puerto Leguízamo","San Francisco","San Miguel","Santiago","Sibundoy","Valle del Guamuez","Villagarzón"],"Quindío":["Armenia","Buenavista","Calarcá","Circasia","Córdoba","Filandia","Génova","La Tebaida","Montenegro","Pijao","Quimbaya","Salento"],"Risaralda":["Apía","Balboa","Belén de Umbría","Dosquebradas","Guática","La Celia","La Virginia","Marsella","Mistrató","Pereira","Pueblo Rico","Quinchía","Santa Rosa de Cabal","Santuario"],"San Andrés y Providencia":["Providencia y Santa Catalina Islas","San Andrés"],"Santander":["Aguada","Albania","Aratoca","Barbosa","Barichara","Barrancabermeja","Betulia","Bolívar","Bucaramanga","Cabrera","California","Capitanejo","Carcasí","Cepitá","Cerrito","Charalá","Charta","Chima","Chipatá","Cimitarra","Concepción","Confines","Contratación","Coromoro","Curití","El Carmen de Chucurí","El Guacamayo","El Peñón","El Playón","El Socorro","Encino","Enciso","Floridablanca","Florián","Galán","Girón","Guaca","Guadalupe","Guapotá","Guavatá","Gámbita","Güepsa","Hato","Jesús María","Jordán","La Belleza","La Paz","Landázuri","Lebrija","Los Santos","Macaravita","Matanza","Mogotes","Molagavita","Málaga","Ocamonte","Oiba","Onzaga","Palmar","Palmas del Socorro","Piedecuesta","Pinchote","Puente Nacional","Puerto Parra","Puerto Wilches","Páramo","Rionegro","Sabana de Torres","San Andrés","San Benito","San Gil","San Joaquín","San José de Miranda","San Miguel","San Vicente de Chucurí","Santa Bárbara","Santa Helena del Opón","Simacota","Suaita","Sucre","Suratá","Tona","Valle de San José","Vetas","Villanueva","Vélez","Zapatoca"],"Sucre":["Buenavista","Caimito","Chalán","Colosó","Corozal","Coveñas","El Roble","Galeras","Guaranda","La Unión","Los Palmitos","Majagual","Morroa","Ovejas","Sampués","San Antonio de Palmito","San Benito Abad","San Juan de Betulia","San Marcos","San Onofre","San Pedro","Sincelejo","Sincé","Sucre","Tolú","Tolú Viejo"],"Tolima":["Alpujarra","Alvarado","Ambalema","Anzoátegui","Armero","Ataco","Cajamarca","Carmen de Apicalá","Casabianca","Chaparral","Coello","Coyaima","Cunday","Dolores","El Espinal","Falán","Flandes","Fresno","Guamo","Herveo","Honda","Ibagué","Icononzo","Lérida","Líbano","Mariquita","Melgar","Murillo","Natagaima","Ortega","Palocabildo","Piedras","Planadas","Prado","Purificación","Rioblanco","Roncesvalles","Rovira","Saldaña","San Antonio","San Luis","Santa Isabel","Suárez","Valle de San Juan","Venadillo","Villahermosa","Villarrica"],"Valle del Cauca":["Alcalá","Andalucía","Ansermanuevo","Argelia","Bolívar","Buenaventura","Buga","Bugalagrande","Caicedonia","Cali","Calima","Candelaria","Cartago","Dagua","El Cairo","El Cerrito","El Dovio","El Águila","Florida","Ginebra","Guacarí","Jamundí","La Cumbre","La Unión","La Victoria","Obando","Palmira","Pradera","Restrepo","Riofrío","Roldanillo","San Pedro","Sevilla","Toro","Trujillo","Tuluá","Ulloa","Versalles","Vijes","Yotoco","Yumbo","Zarzal"],"Vaupés":["Carurú","Mitú","Taraira"],"Vichada":["Cumaribo","La Primavera","Puerto Carreño","Santa Rosalía"],"Bogotá D.C.":["Bogotá D.C."]};
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -947,7 +969,6 @@
 
     depSel.addEventListener('change', cargarMunicipios);
 
-    // Validar que el municipio escrito pertenezca al departamento
     munInput.addEventListener('blur', () => {
       const dep = depSel.value;
       if (!dep || !munInput.value) return;
@@ -1049,6 +1070,17 @@
       condOtra.classList.toggle('show', esOtra);
       inputOtra.required = esOtra;
       if (!esOtra) inputOtra.value = '';
+    });
+
+    // Estrategia "Otra"
+    const estrategia = document.getElementById('estrategia');
+    const condOtraEst = document.getElementById('cond-otraEstrategia');
+    const inputOtraEst = document.getElementById('otraEstrategia');
+    estrategia.addEventListener('change', () => {
+      const esOtraEst = estrategia.value === '__OTRA_ESTRATEGIA__';
+      condOtraEst.classList.toggle('show', esOtraEst);
+      inputOtraEst.required = esOtraEst;
+      if (!esOtraEst) inputOtraEst.value = '';
     });
 
     // Tipo de vínculo solo ajusta las sugerencias del campo Nombre de la alianza (que está siempre visible)
@@ -1162,6 +1194,11 @@
         ? document.getElementById('otraActividad').value
         : sActividad;
 
+      const sEstrategia = document.getElementById('estrategia').value;
+      const estrategiaFinal = sEstrategia === '__OTRA_ESTRATEGIA__'
+        ? document.getElementById('otraEstrategia').value
+        : sEstrategia;
+
       const tipoVinculo = document.getElementById('tipoVinculo').value;
       let nombreAliado = 'NA';
       if (tipoVinculo === 'Alianza' || tipoVinculo === 'Articulación') {
@@ -1171,6 +1208,7 @@
       const payload = new FormData();
       payload.append('Nombre Líder Territorial', document.getElementById('gestor').value);
       payload.append('Tipo de Gestión', document.getElementById('tipoGestion').value);
+      payload.append('Estrategia', estrategiaFinal);
       payload.append('Fecha de la actividad', document.getElementById('fecha').value);
       payload.append('Región', document.getElementById('region').value);
       payload.append('Departamento', document.getElementById('departamento').value);
@@ -1219,6 +1257,7 @@
 
         showSuccess({
           gestor: document.getElementById('gestor').value,
+          estrategia: estrategiaFinal,
           actividad: actividadFinal,
           fecha: document.getElementById('fecha').value,
           ubicacion: document.getElementById('municipio').value + ', ' + document.getElementById('departamento').value,
@@ -1244,6 +1283,7 @@
     const summary = document.getElementById('successSummary');
     summary.innerHTML = `
       <dt>Líder territorial</dt><dd>${escapeHtml(data.gestor)}</dd>
+      <dt>Estrategia</dt><dd>${escapeHtml(data.estrategia)}</dd>
       <dt>Actividad</dt><dd>${escapeHtml(data.actividad)}</dd>
       <dt>Fecha</dt><dd>${escapeHtml(data.fecha)}</dd>
       <dt>Ubicación</dt><dd>${escapeHtml(data.ubicacion)}</dd>
