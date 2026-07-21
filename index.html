@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reporte de Actividades · Programa Contigo Conectados</title>
   <meta name="description" content="Formulario oficial de reporte de actividades del programa Contigo Conectados. Fundación MásPorTIC y TIGO Colombia." />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --tigo-blue:        #003F8C;
@@ -17,10 +15,8 @@
       --tigo-blue-light:  #1D6FD3;
       --tigo-blue-50:     #E8F0FB;
       --tigo-blue-100:    #C8DCF3;
-
       --mp-green:         #2E8B40;
       --mp-green-50:      #EDF6EF;
-
       --bg:               #F4F6F9;
       --paper:            #FFFFFF;
       --ink:              #11181F;
@@ -30,13 +26,10 @@
       --line-soft:        #E8ECF1;
       --error:            #B91C1C;
       --error-bg:         #FEF2F2;
-
       --radius-sm: 2px;
       --radius:    4px;
-
       --font: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -51,7 +44,6 @@
     }
     a { color: var(--tigo-blue); text-decoration: underline; text-underline-offset: 2px; }
     a:hover { color: var(--tigo-blue-deep); }
-
     .topstripe { height: 4px; background: var(--tigo-blue); }
     .header { background: var(--paper); border-bottom: 1px solid var(--line); }
     .header-inner {
@@ -70,7 +62,6 @@
     .brand-mp { color: var(--mp-green); }
     .brand-divider { width: 1px; height: 22px; background: var(--line); }
     .header-meta { font-size: 13px; color: var(--ink-muted); font-weight: 500; }
-
     .hero { background: var(--paper); border-bottom: 1px solid var(--line); }
     .hero-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 48px; }
     .hero-tag {
@@ -115,11 +106,9 @@
     .hero-meta strong { color: var(--ink); font-weight: 600; }
     .hero-meta-item { display: flex; align-items: center; gap: 8px; }
     .hero-meta-dot { width: 6px; height: 6px; background: var(--tigo-blue); border-radius: 50%; }
-
     .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
     .layout { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
     @media (max-width: 920px) { .layout { grid-template-columns: 1fr; gap: 24px; } }
-
     .stepper {
       position: sticky;
       top: 24px;
@@ -162,7 +151,6 @@
     }
     .step.active { background: var(--tigo-blue-50); color: var(--tigo-blue-deep); font-weight: 600; }
     .step.active .step-num { background: var(--tigo-blue); color: white; }
-
     .form-wrap { max-width: 720px; }
     .section {
       background: var(--paper);
@@ -205,7 +193,6 @@
       margin: -16px 0 24px 0;
       line-height: 1.55;
     }
-
     .field { margin-bottom: 20px; }
     .field:last-child { margin-bottom: 0; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -213,11 +200,9 @@
       .field-row { grid-template-columns: 1fr; gap: 0; }
       .field-row .field { margin-bottom: 20px; }
     }
-
     label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
     label .req { color: var(--error); margin-left: 2px; }
     .label-hint { display: block; font-size: 12px; font-weight: 400; color: var(--ink-soft); margin-top: 3px; }
-
     input[type="text"], input[type="email"], input[type="number"],
     input[type="date"], input[type="tel"],
     select, textarea {
@@ -246,7 +231,6 @@
       cursor: pointer;
     }
     textarea { resize: vertical; min-height: 100px; font-family: inherit; }
-
     .file-drop {
       position: relative;
       border: 1px dashed var(--line);
@@ -275,14 +259,12 @@
       word-break: break-all;
     }
     .file-drop.has-file .file-drop-name { display: inline-block; }
-
     .conditional { display: none; animation: fadeSlide 0.25s ease-out; }
     .conditional.show { display: block; }
     @keyframes fadeSlide {
       from { opacity: 0; transform: translateY(-4px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .info-callout {
       background: var(--tigo-blue-50);
       border-left: 3px solid var(--tigo-blue);
@@ -294,7 +276,6 @@
       line-height: 1.55;
     }
     .info-callout strong { color: var(--tigo-blue-deep); font-weight: 700; }
-
     .virtual-toggle {
       margin-bottom: 18px;
       padding: 14px 16px;
@@ -304,7 +285,6 @@
     }
     .virtual-toggle label { margin-bottom: 8px; }
     .virtual-toggle select { max-width: 320px; }
-
     .actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding-top: 8px; }
     .btn {
       font-family: inherit;
@@ -324,7 +304,6 @@
     .btn-primary:hover { background: var(--tigo-blue-deep); border-color: var(--tigo-blue-deep); }
     .btn-primary:disabled { background: var(--ink-soft); border-color: var(--ink-soft); cursor: not-allowed; }
     .actions-note { font-size: 12px; color: var(--ink-soft); }
-
     .error-banner {
       display: none;
       background: var(--error-bg);
@@ -337,7 +316,6 @@
       line-height: 1.5;
     }
     .error-banner.show { display: block; }
-
     .spinner {
       width: 14px; height: 14px;
       border: 2px solid currentColor;
@@ -346,7 +324,6 @@
       animation: spin 0.7s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
     .success-view {
       display: none;
       text-align: center;
@@ -381,7 +358,6 @@
     }
     .success-summary dt:first-child { margin-top: 0; }
     .success-summary dd { margin: 4px 0 0 0; font-size: 14px; color: var(--ink); font-weight: 500; }
-
     footer { border-top: 1px solid var(--line); background: var(--paper); padding: 24px; }
     .footer-inner {
       max-width: 1200px;
@@ -394,13 +370,54 @@
       font-size: 13px;
       color: var(--ink-soft);
     }
+
+    /* ===== Tooltips informativos (estrategia y actividad) ===== */
+    .tip-wrap { position: relative; display: inline-flex; align-items: center; margin-left: 6px; vertical-align: middle; cursor: pointer; outline: none; }
+    .tip-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: transparent; color: var(--ink-soft);
+      border: 1.4px solid var(--line);
+      transition: transform .18s cubic-bezier(.34,1.56,.64,1), background .18s, color .18s, border-color .18s;
+    }
+    .tip-icon svg { width: 11px; height: 11px; display: block; }
+    .tip-wrap:hover .tip-icon, .tip-wrap:focus-visible .tip-icon {
+      background: var(--tigo-blue); color: #fff; border-color: var(--tigo-blue); transform: scale(1.15);
+    }
+    .tip-wrap:focus-visible { outline: 2px solid var(--tigo-blue); outline-offset: 3px; border-radius: 50%; }
+    .tip-box {
+      position: absolute; left: 0; bottom: calc(100% + 10px);
+      transform: translateY(5px);
+      width: 300px; max-width: 80vw;
+      background: var(--paper); color: var(--ink);
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 12px 14px; font-size: 12.5px; font-weight: 400; line-height: 1.5;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(10,35,66,.13), 0 2px 8px rgba(10,35,66,.06);
+      opacity: 0; visibility: hidden; z-index: 40; pointer-events: none;
+      transition: opacity .18s ease, transform .18s cubic-bezier(.22,1,.36,1), visibility .18s;
+    }
+    .tip-wrap:hover .tip-box, .tip-wrap:focus-visible .tip-box { opacity: 1; visibility: visible; transform: translateY(0); }
+    .tip-box .tip-label { display: block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--tigo-blue); margin-bottom: 4px; }
+    .tip-box .tip-row { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line-soft); }
+    .tip-box .tip-k { font-weight: 700; color: var(--ink); }
+    .tag-enfoque { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+    .tag-ap { background: var(--tigo-blue-50); color: var(--tigo-blue-deep); }
+    .tag-pr { background: var(--mp-green-50); color: var(--mp-green); }
+    /* Panel informativo bajo un select (público/enfoque de actividad, y gestión) */
+    .info-panel {
+      display: none; margin-top: 10px; padding: 12px 14px;
+      background: var(--bg); border: 1px solid var(--line-soft); border-left: 3px solid var(--tigo-blue);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 13px; color: var(--ink-muted); line-height: 1.5;
+    }
+    .info-panel.show { display: block; animation: fadeSlide 0.25s ease-out; }
+    .info-panel .ip-k { font-weight: 700; color: var(--ink); }
+    /* Campo bloqueado (tipo de gestión automático) */
+    .locked { background: var(--bg) !important; color: var(--ink-muted) !important; cursor: not-allowed; }
   </style>
 </head>
-
 <body>
-
   <div class="topstripe"></div>
-
   <header class="header">
     <div class="header-inner">
       <div class="brand-group">
@@ -411,7 +428,6 @@
       <span class="header-meta">Programa Contigo Conectados</span>
     </div>
   </header>
-
   <section class="hero">
     <div class="hero-inner">
       <span class="hero-tag">Reporte oficial · 2026</span>
@@ -434,10 +450,8 @@
       </div>
     </div>
   </section>
-
   <main class="container">
     <div class="layout" id="form-view">
-
       <nav class="stepper" id="stepper" aria-label="Progreso del formulario">
         <a href="#sec-1" class="step active" data-step="1"><span class="step-num">1</span><span>Identificación</span></a>
         <a href="#sec-2" class="step" data-step="2"><span class="step-num">2</span><span>Ubicación geográfica</span></a>
@@ -445,10 +459,8 @@
         <a href="#sec-4" class="step" data-step="4"><span class="step-num">4</span><span>Clasificación</span></a>
         <a href="#sec-5" class="step" data-step="5"><span class="step-num">5</span><span>Resultados</span></a>
       </nav>
-
       <div class="form-wrap">
         <form id="reportForm" novalidate>
-
           <!-- ============ CATEGORÍA 1: IDENTIFICACIÓN ============ -->
           <section class="section" id="sec-1">
             <div class="section-header">
@@ -457,44 +469,31 @@
             </div>
             <p class="section-desc">Identifica al líder territorial, persona replicadora o facilitador que realiza la actividad, y el día/mes/año en el que se implementa.
 </p>
-
-            <div class="field">
-              <label for="tipoGestion">Tipo de Gestión<span class="req">*</span></label>
-              <select id="tipoGestion" name="tipoGestion" required>
-                <option value="">Selecciona</option>
-                <option>Canales Digitales</option>
-                <option>Contenidos Digitales</option>
-                <option>Gestión Individual</option>
-                <option>Gestión Territorial</option>
-                <option>Plataformas Digitales</option>
-                <option>Voluntariado Ambiental</option>
-                <option>Voluntariado Social</option>
-              </select>
-            </div>
-
             <div class="field">
               <label for="estrategia">Estrategia<span class="req">*</span>
-                <span class="label-hint">Selecciona la estrategia del programa a la que corresponde esta actividad.</span>
+                <span class="tip-wrap" tabindex="0" role="button" aria-label="Ver descripción de las estrategias" id="tipEstrategia">
+                  <span class="tip-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 7.2v4"/><circle cx="8" cy="4.6" r=".35" fill="currentColor" stroke="none"/></svg></span>
+                  <span class="tip-box" id="tipEstrategiaBox"><span class="tip-label">Estrategia</span>Selecciona una estrategia para ver su descripción. Cada estrategia tiene un tipo de gestión asociado que se asignará automáticamente.</span>
+                </span>
+                <span class="label-hint">Selecciona la estrategia del programa a la que corresponde esta actividad. El tipo de gestión se asigna solo.</span>
               </label>
               <select id="estrategia" name="estrategia" required>
                 <option value="">Selecciona la estrategia</option>
-                <option>Estrategia 1: Sello Territorio Digital Seguro</option>
-                <option>Estrategia 2: Ruta nacional de formación masiva a Instituciones Educativas del Sello</option>
-                <option>Estrategia 3: Eventos virtuales y presenciales masivos</option>
-                <option>Estrategia 4: Cursos por WhatsApp para emprendedores y mujeres</option>
-                <option>Estrategia 5: Ecosistema Digital descargables tipo cápsulas educativas cortas.</option>
-                <option>Estrategia 6: Aliados con QR y enlaces trazables a cápsulas educativas cortas</option>
-                <option>Estrategia 7: Email marketing y SMS</option>
-                <option>Estrategia 8: Estrategia digital y pauta</option>
-                <option value="__OTRA_ESTRATEGIA__">Estrategia 9: Otras estrategias ¿Cuál?</option>
+              </select>
+              <div class="info-panel" id="panelEstrategia"></div>
+            </div>
+            <div class="field">
+              <label for="tipoGestion">Tipo de Gestión<span class="req">*</span>
+                <span class="label-hint">Se asigna automáticamente según la estrategia seleccionada.</span>
+              </label>
+              <select id="tipoGestion" name="tipoGestion" required class="locked" tabindex="-1" aria-readonly="true">
+                <option value="">Selecciona primero la estrategia</option>
+                <option>Canales Digitales</option>
+                <option>Gestión Individual</option>
+                <option>Gestión Territorial</option>
+                <option>Voluntariado</option>
               </select>
             </div>
-
-            <div class="field conditional" id="cond-otraEstrategia">
-              <label for="otraEstrategia">Nombre de la otra estrategia<span class="req">*</span></label>
-              <input type="text" id="otraEstrategia" name="otraEstrategia" placeholder="Escribe el nombre de la estrategia" />
-            </div>
-
             <div class="field">
               <label for="gestor">Nombre de persona facilitadora<span class="req">*</span></label>
               <select id="gestor" name="gestor" required>
@@ -514,7 +513,6 @@
                 <option>Marjoan Robayo</option>
               </select>
             </div>
-
             <div class="field">
               <label for="fecha">Fecha de la actividad<span class="req">*</span>
                 <span class="label-hint">Seleccionar día/mes/año en el que se realiza la actividad</span>
@@ -522,7 +520,6 @@
               <input type="date" id="fecha" name="fecha" required />
             </div>
           </section>
-
           <!-- ============ CATEGORÍA 2: UBICACIÓN GEOGRÁFICA ============ -->
           <section class="section" id="sec-2">
             <div class="section-header">
@@ -530,7 +527,6 @@
               <h2 class="section-title">Ubicación geográfica</h2>
             </div>
             <p class="section-desc">Geolocaliza dónde se realiza la actividad pedagógica para visualizar en los tableros de reporte.</p>
-
             <div class="field virtual-toggle">
               <label for="esVirtual">¿La actividad fue completamente virtual?
                 <span class="label-hint">Si fue virtual, los campos de ubicación geográfica se llenarán automáticamente con "No Aplica".</span>
@@ -540,7 +536,6 @@
                 <option value="Si">Sí, fue completamente virtual</option>
               </select>
             </div>
-
             <div class="field-row">
               <div class="field">
                 <label for="region">Región<span class="req">*</span></label>
@@ -563,7 +558,6 @@
                 </select>
               </div>
             </div>
-
             <div class="field-row">
               <div class="field">
                 <label for="municipio">Municipio<span class="req">*</span>
@@ -578,19 +572,16 @@
               </div>
             </div>
           </section>
-
           <!-- ============ CATEGORÍA 3: ALIANZAS E INSTITUCIONES ============ -->
           <section class="section" id="sec-3">
             <div class="section-header">
               <span class="section-tag">Categoría 3</span>
               <h2 class="section-title">Alianzas e instituciones</h2>
             </div>
-
             <div class="info-callout">
               <strong>Alianza:</strong> vínculo formal entre Tigo y una institución, es un acuerdo escrito y firmado por las partes (memorando de entendimiento, carta de intención, etc.).<br>
               <strong>Articulación:</strong> trabajo coordinado sin acuerdo formal entre Tigo y una institución.
             </div>
-
             <div class="field-row">
               <div class="field">
                 <label for="nivelAlianza">Nivel de alianza<span class="req">*</span></label>
@@ -613,7 +604,6 @@
                 </select>
               </div>
             </div>
-
             <div class="field">
               <label for="tipoAlianza">Tipo de Alianza<span class="req">*</span></label>
               <select id="tipoAlianza" name="tipoAlianza" required>
@@ -627,7 +617,6 @@
                 <option>NA</option>
               </select>
             </div>
-
             <div class="field" id="cond-nombreAlianza">
               <label for="nombreAlianza">Nombre de la alianza o articulación<span class="req">*</span>
                 <span class="label-hint">La entidad con la que se gestiona el vínculo. Es distinta a la institución donde se realiza la actividad. Elige una de la lista o escribe una nueva. Si no aplica, escribe NA.</span>
@@ -635,7 +624,6 @@
               <input type="text" id="nombreAlianza" name="nombreAlianza" list="aliados-list" autocomplete="off" placeholder="Escribe o selecciona la entidad aliada" required />
               <datalist id="aliados-list"></datalist>
             </div>
-
             <div class="field">
               <label for="tipoInst">Tipo de institución en la que se realiza la actividad<span class="req">*</span></label>
               <select id="tipoInst" name="tipoInst" required>
@@ -649,12 +637,10 @@
                 <option>Universidades</option>
               </select>
             </div>
-
             <div class="field">
               <label for="nombreInst">Nombre de la institución en la que se realiza la actividad<span class="req">*</span></label>
               <input type="text" id="nombreInst" name="nombreInst" required />
             </div>
-
             <div class="field-row">
               <div class="field">
                 <label for="direccion">Dirección<span class="req">*</span></label>
@@ -670,7 +656,6 @@
               </div>
             </div>
           </section>
-
           <!-- ============ CATEGORÍA 4: CLASIFICACIÓN DE ORGANIZACIÓN ============ -->
           <section class="section" id="sec-4">
             <div class="section-header">
@@ -678,7 +663,6 @@
               <h2 class="section-title">Clasificación de la institución</h2>
             </div>
             <p class="section-desc">Naturaleza de la institución en la que se implementa la actividad pedagógica y la modalidad de la intervención.</p>
-
             <div class="field-row">
               <div class="field">
                 <label for="tipoOrg">Tipo de Organización<span class="req">*</span></label>
@@ -700,7 +684,6 @@
                 </select>
               </div>
             </div>
-
             <div class="field">
               <label for="tipoIntervencion">Tipo de Intervención<span class="req">*</span></label>
               <select id="tipoIntervencion" name="tipoIntervencion" required>
@@ -711,7 +694,6 @@
               </select>
             </div>
           </section>
-
           <!-- ============ CATEGORÍA 5: RESULTADOS, ACTIVIDADES Y EVIDENCIAS ============ -->
           <section class="section" id="sec-5">
             <div class="section-header">
@@ -719,7 +701,6 @@
               <h2 class="section-title">Resultados, actividades y evidencias</h2>
             </div>
             <p class="section-desc">Incluye la información sobre el impacto de tu actividad pedagógica en el público al que se dirige; así como los soportes de su implementación.</p>
-
             <div class="field">
               <label for="publico">Público<span class="req">*</span></label>
               <select id="publico" name="publico" required>
@@ -736,51 +717,19 @@
                 <option>Padres, madres o cuidadores</option>
               </select>
             </div>
-
             <div class="field">
               <label for="actividad">Tipo de actividad o proyecto<span class="req">*</span>
-                <span class="label-hint">Selecciona la actividad del portafolio. Si es nueva, elige "Otra"</span>
+                <span class="tip-wrap" tabindex="0" role="button" aria-label="Ver información de la actividad" id="tipActividad">
+                  <span class="tip-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 7.2v4"/><circle cx="8" cy="4.6" r=".35" fill="currentColor" stroke="none"/></svg></span>
+                  <span class="tip-box" id="tipActividadBox"><span class="tip-label">Actividad</span>Selecciona una actividad para ver su público sugerido y su enfoque.</span>
+                </span>
+                <span class="label-hint">Selecciona la actividad del portafolio. Al elegirla verás su público sugerido y su enfoque.</span>
               </label>
               <select id="actividad" name="actividad" required>
                 <option value="">Selecciona la actividad</option>
-                <option>Familias conectadas: acuerdos para el uso responsable y seguro de Internet</option>
-                <option>Navegando a mi ritmo: mejores búsquedas en Internet</option>
-                <option>Conéctate al aula digital: transforma tus clases con herramientas digitales</option>
-                <option>Mi primera pantalla: un portal al mundo de Pepe, Tito y Leti</option>
-                <option>Guardianes digitales: Conexión con los entornos protectores</option>
-                <option>DocencIA: potencia tu creatividad pedagógica en el aula</option>
-                <option>Clase+cámara+acción: creando contenidos educativos</option>
-                <option>Acompañar para conectar: mediación docente para el uso de internet</option>
-                <option>Mi primer clic: mediación en familia para la primera infancia</option>
-                <option>Mediación digital en familia</option>
-                <option>Conectadas con el empleo: haz brillar tu perfil con herramientas profesionales</option>
-                <option>Conectadas con el emprendimiento: lleva tu negocio a otro nivel</option>
-                <option>Conectadas con la educación: herramientas digitales para el aprendizaje</option>
-                <option>Detrás del avatar: DebaTIC</option>
-                <option>Más allá del trend: Riesgos y oportunidades de las redes.</option>
-                <option>Del like al aprendizaje: oportunidades de las Redes Sociales como herramientas educativas</option>
-                <option>Internet para cuidarte: bienestar en línea</option>
-                <option>Famil-IA: reduce la brecha digital con Inteligencia Artificial</option>
-                <option>Todos Conectados: Brújula digital para la vida diaria</option>
-                <option>Transacciones seguras en Internet</option>
-                <option>Tecnología a mi ritmo</option>
-                <option>Tu radar digital: identifica recursos digitales para tus clases</option>
-                <option>Bienestar digital docente: hábitos para trabajar con tecnología sin agotarse</option>
-                <option>Tareas sin drama: acompaña el aprendizaje usando herramientas digitales</option>
-                <option>Pantallas con sentido: elige contenidos adecuados según la edad</option>
-                <option>Conectadas con tus derechos: herramientas para participar con confianza en los espacios digitales públicos</option>
-                <option>Conectadas con tus Finanzas: gestiona tu dinero en el entorno digital</option>
-                <option>Pantalla OFF, descanso ON</option>
-                <option>Escudo digital activado</option>
-                <option value="__OTRA__">Otra (especificar abajo)</option>
               </select>
+              <div class="info-panel" id="panelActividad"></div>
             </div>
-
-            <div class="field conditional" id="cond-otraActividad">
-              <label for="otraActividad">Nombre de la nueva actividad<span class="req">*</span></label>
-              <input type="text" id="otraActividad" name="otraActividad" placeholder="Describe la actividad" />
-            </div>
-
             <div class="field-row">
               <div class="field">
                 <label for="numActividades">Número de actividades<span class="req">*</span>
@@ -793,7 +742,6 @@
                 <input type="number" id="totalBenef" name="totalBenef" min="0" placeholder="0" required />
               </div>
             </div>
-
             <div class="field-row">
               <div class="field">
                 <label for="mujeres">Mujeres beneficiadas<span class="req">*</span></label>
@@ -804,18 +752,15 @@
                 <input type="number" id="hombres" name="hombres" min="0" placeholder="0" required />
               </div>
             </div>
-
             <div class="field conditional" id="cond-voluntarios">
               <label for="voluntarios">Número de voluntarios<span class="req">*</span>
-                <span class="label-hint">Solo aplica para Voluntariado Social o Ambiental.</span>
+                <span class="label-hint">Solo aplica para la estrategia de Voluntariado.</span>
               </label>
               <input type="number" id="voluntarios" name="voluntarios" min="0" placeholder="0" />
             </div>
-
             <div class="info-callout" id="benefHint" style="display:none;">
               <strong>Atención:</strong> <span id="benefHintMsg"></span>
             </div>
-
             <div class="field">
               <label for="evidencia">Adjuntar evidencia<span class="req">*</span></label>
               <div class="file-drop" id="fileDrop">
@@ -825,7 +770,6 @@
                 <div class="file-drop-name" id="fileName"></div>
               </div>
             </div>
-
             <div class="field">
               <label for="audiovisual">Adjuntar registro audiovisual
                 <span class="label-hint">Opcional. Enlace o archivo de video o galería fotográfica de la actividad.</span>
@@ -837,24 +781,19 @@
                 <div class="file-drop-name" id="fileNameAv"></div>
               </div>
             </div>
-
             <div class="field">
               <label for="comentarios">Observaciones o comentarios<span class="req">*</span></label>
               <textarea id="comentarios" name="comentarios" placeholder="Cuenta brevemente cómo fue la actividad: logros, retos, aprendizajes. Si tienes un enlace de video, pégalo aquí."></textarea>
             </div>
-
             <div class="actions">
               <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar reporte</button>
               <span class="actions-note">Los datos van directo a la base consolidada y al tablero Power BI.</span>
             </div>
-
             <div class="error-banner" id="errorBanner"></div>
           </section>
-
         </form>
       </div>
     </div>
-
     <section class="success-view" id="success-view">
       <div class="success-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -868,18 +807,21 @@
       <dl class="success-summary" id="successSummary"></dl>
       <button class="btn btn-primary" onclick="window.location.reload()">Registrar otra actividad</button>
     </section>
-
   </main>
-
   <footer>
     <div class="footer-inner">
       <span>Fundación MásPorTIC · TIGO Colombia · 2026</span>
       <span>Reporte de actividades · Programa Contigo Conectados</span>
     </div>
   </footer>
-
   <script>
   const N8N_WEBHOOK_URL = 'https://masportic.app.n8n.cloud/webhook/contigo-conectados';
+
+  /* ===== Estrategias (con tipo de gestión asociado y descripción) ===== */
+  const ESTRATEGIAS = [{"estrategia": "Sello Territorio Digital Seguro", "tipoGestion": "Gestión Territorial", "descripcion": "Cuando la actividad se ejecuta con una institución educativa vinculada al proceso del Sello y suma a su ruta de certificación.", "tooltip": "Actividad ejecutada con una institución educativa vinculada al proceso del Sello, que suma a su ruta de certificación."}, {"estrategia": "Ruta nacional de formación masiva", "tipoGestion": "Gestión Territorial", "descripcion": "Cuando la actividad se ejecuta en el marco de la estrategia pensada por el equipo de líderes territoriales de manera virtual para 2026", "tooltip": "Actividad ejecutada en el marco de la estrategia de formación virtual masiva pensada por el equipo de líderes territoriales para 2026."}, {"estrategia": "Eventos virtuales y presenciales masivos", "tipoGestion": "Gestión Territorial", "descripcion": "Cuando se despliegan la estrategias de eventos masivos virtuales o presenciales con una convocatoria previa", "tooltip": "Despliegue de eventos masivos virtuales o presenciales con una convocatoria previa."}, {"estrategia": "Cursos por WhatsApp", "tipoGestion": "Canales Digitales", "descripcion": "Cuando se definen cohorte con aliados para iniciar cursos por Whatsapp programados con anterioridad", "tooltip": "Cohortes definidas con aliados para iniciar cursos por WhatsApp programados con anterioridad."}, {"estrategia": "Ecosistema Digital descargables tipo cápsulas educativas cortas.", "tipoGestion": "Canales Digitales", "descripcion": "Cuando los beneficiarios efectivamente acceder a material educativos a través del ecosistema digital de Tigo", "tooltip": "Los beneficiarios acceden a material educativo a través del ecosistema digital de Tigo."}, {"estrategia": "Aliados con QR y enlaces trazables a cápsulas educativas cortas", "tipoGestion": "Canales Digitales", "descripcion": "Cuando a través de material como cápsulas educativas un aliado visibiliza este por sus redes y se tiene el registro de los beneficiarios que efectivamente lo usaron", "tooltip": "Un aliado difunde cápsulas educativas por sus redes y se registran los beneficiarios que efectivamente las usaron mediante QR o enlace trazable."}, {"estrategia": "Estrategia Digital", "tipoGestion": "Canales Digitales", "descripcion": "Cuando se realizan campañas digitales en redes, pauta, email marketing y demás acciones para facilitar el acceso a beneficiarios a material pedagógico o invitaciones a eventos o charlas", "tooltip": "Campañas digitales en redes, pauta, email marketing y otras acciones para facilitar el acceso a material o a eventos."}, {"estrategia": "Voluntariado", "tipoGestion": "Voluntariado", "descripcion": "Cuando se acompaña el despliegue de actividades de Contigo Conectados, con acciones de voluntariado social o ambiental", "tooltip": "Acompañamiento al despliegue de actividades con acciones de voluntariado social o ambiental."}, {"estrategia": "Réplica por actor habilitado", "tipoGestion": "Gestión Territorial", "descripcion": "Una persona previamente habilitada por el programa ejecuta la actividad con públicos finales usando materiales aprobados.\nCuando la actividad la realiza un externo a MásPorTIC entrenado para hacerlo.", "tooltip": "Una persona externa a MásPorTIC, previamente habilitada por el programa, ejecuta la actividad con públicos finales usando materiales aprobados."}, {"estrategia": "Una alianza nacional con despliegue territorial", "tipoGestion": "Gestión Territorial", "descripcion": "La actividad nace de una alianza, directriz o plan acordado a nivel nacional y la región implementa con sedes, nodos o públicos territoriales.", "tooltip": "La actividad nace de una alianza o plan acordado a nivel nacional y la región lo implementa con sedes, nodos o públicos territoriales."}, {"estrategia": "Relacionamiento Territorial informal directo", "tipoGestion": "Gestión Individual", "descripcion": "Cuando la actividad ejecutada nace por gestión directa del equipo territorial con una institución, organización o grupo específico, sin alianza formal, ruta nacional o actor articulador previo. Funciona como puerta de entrada para futuras rutas territoriales.\nTambién puede surgir de actividades producto del relacionamiento generado por networking, llamadas, seguimiento WhatsApp, cartas y voz a voz.", "tooltip": "Actividad que nace por gestión directa del equipo territorial con una institución o grupo, sin alianza formal ni ruta nacional previa. Puerta de entrada para futuras rutas."}, {"estrategia": "Relacionamiento Territorial formal", "tipoGestion": "Gestión Individual", "descripcion": "Cuando la actividad se realiza en el marco de un convenio, memorando, carta, acta o acuerdo formal vigente, que no clasifique las actividades dentro de las demás estrategias listadas anteriormente.", "tooltip": "Actividad realizada en el marco de un convenio, memorando, carta o acuerdo formal vigente, que no encaja en las demás estrategias."}];
+
+  /* ===== Actividades (con público sugerido y enfoque) ===== */
+  const ACTIVIDADES = [{"actividad": "Clase+cámara+acción: creando contenidos educativos", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Conéctate al aula digital: transforma tus clases con herramientas digitales", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "DocencIA: potencia tu creatividad pedagógica en el aula", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Navegando a mi ritmo: mejores búsquedas en Internet", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Acompañar para conectar: mediación docente para el uso de Internet", "publico": "Docentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Todos Conectados: Brújula digital para la vida diaria", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Mujeres Conectadas al mundo digital", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Internet para cuidarte: bienestar en línea", "publico": "Personas mayores", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Transacciones seguras en Internet", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Tecnología a mi ritmo (ciclo de contenidos)", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Familias conectadas: acuerdos para el uso responsable y seguro de Internet", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Del like al aprendizaje: oportunidades de las Redes Sociales como herramientas educativas", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Mediación digital en familia", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Pantalla OFF, descanso ON", "publico": "Adolescentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Mi primera pantalla: un portal al mundo de Pep, Tito y Leti", "publico": "Niñas y Niños 6 a 9 años", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con el empleo: haz brillar tu perfil con herramientas profesionales", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Mi primer clic: mediación en familia para la primera infancia", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Guardianes digitales: Conexión con los entornos protectores", "publico": "Docentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Escudo digital activado", "publico": "Adolescentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Bienestar digital docente: hábitos para trabajar con tecnología sin agotarse", "publico": "Docentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con el emprendimiento: lleva tu negocio a otro nivel", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Detrás del avatar: DebaTIC", "publico": "Niñas y Niños 10 - 12", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con tus derechos: herramientas para participar con confianza en los espacios digitales públicos", "publico": "Mujeres", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Famil-IA: reduce la brecha digital con Inteligencia Artificial", "publico": "PMyC", "enfoque": "Apropiación Digital"}, {"actividad": "Tareas sin drama: acompaña el aprendizaje usando herramientas digitales", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Pantallas con sentido: elige contenidos adecuados según la edad", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Más allá del trend: Riesgos y oportunidades de las redes.", "publico": "Adolescentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con la educación: herramientas digitales para el aprendizaje", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Tu radar digital: identifica recursos digitales para tus clases", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Conectadas con tus Finanzas: gestiona tu dinero en el entorno digital", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Internet de las oportunidades: conoce cómo Internet impacta tu vida", "publico": "PMyC", "enfoque": "Apropiación Digital"}];
 
   const DEPARTAMENTOS = [
     'Amazonas','Antioquia','Arauca','Atlántico','Bogotá D.C.','Bolívar','Boyacá',
@@ -888,7 +830,6 @@
     'Norte de Santander','Putumayo','Quindío','Risaralda','San Andrés y Providencia',
     'Santander','Sucre','Tolima','Valle del Cauca','Vaupés','Vichada'
   ];
-
   const ALIANZAS = [
     'Gobernación de Antioquia',
     'Secretaría de Educación Municipal de Palmira',
@@ -922,9 +863,7 @@
     'Secretaría de Educación Departamental del Atlántico',
     'Universidad del Atlántico'
   ];
-
   const MUNICIPIOS = {"Amazonas":["Leticia","Puerto Nariño"],"Antioquia":["Abejorral","Abriaquí","Alejandría","Amagá","Amalfi","Andes","Angelópolis","Angostura","Anorí","Anzá","Apartadó","Arboletes","Argelia","Armenia","Barbosa","Bello","Belmira","Betania","Betulia","Briceño","Buriticá","Caicedo","Caldas","Campamento","Caracolí","Caramanta","Carepa","Carolina del Príncipe","Caucasia","Cañasgordas","Chigorodó","Cisneros","Ciudad Bolívar","Cocorná","Concepción","Concordia","Copacabana","Cáceres","Dabeiba","Donmatías","Ebéjico","El Bagre","El Carmen de Viboral","El Peñol","El Retiro","El Santuario","Entrerríos","Envigado","Fredonia","Frontino","Giraldo","Girardota","Granada","Guadalupe","Guarne","Guatapé","Gómez Plata","Heliconia","Hispania","Itagüí","Ituango","Jardín","Jericó","La Ceja","La Estrella","La Pintada","La Unión","Liborina","Maceo","Marinilla","Medellín","Montebello","Murindó","Mutatá","Nariño","Nechí","Necoclí","Olaya","Peque","Pueblorrico","Puerto Berrío","Puerto Nare","Puerto Triunfo","Remedios","Rionegro","Sabanalarga","Sabaneta","Salgar","San Andrés de Cuerquia","San Carlos","San Francisco","San Jerónimo","San José de la Montaña","San Juan de Urabá","San Luis","San Pedro de Urabá","San Pedro de los Milagros","San Rafael","San Roque","San Vicente","Santa Bárbara","Santa Fe de Antioquia","Santa Rosa de Osos","Santo Domingo","Segovia","Sonsón","Sopetrán","Tarazá","Tarso","Titiribí","Toledo","Turbo","Támesis","Uramita","Urrao","Valdivia","Valparaíso","Vegachí","Venecia","Vigía del Fuerte","Yalí","Yarumal","Yolombó","Yondó","Zaragoza"],"Arauca":["Arauca","Arauquita","Cravo Norte","Fortul","Puerto Rondón","Saravena","Tame"],"Atlántico":["Baranoa","Barranquilla","Campo de la Cruz","Candelaria","Galapa","Juan de Acosta","Luruaco","Malambo","Manatí","Palmar de Varela","Piojó","Polonuevo","Ponedera","Puerto Colombia","Repelón","Sabanagrande","Sabanalarga","Santa Lucía","Santo Tomás","Soledad","Suán","Tubará","Usiacurí"],"Bolívar":["Achí","Altos del Rosario","Arenal","Arjona","Arroyohondo","Barranco de Loba","Brazuelo de Papayal","Calamar","Cantagallo","Cartagena de Indias","Cicuco","Clemencia","Córdoba","El Carmen de Bolívar","El Guamo","El Peñón","Hatillo de Loba","Magangué","Mahates","Margarita","María la Baja","Mompós","Montecristo","Morales","Norosí","Pinillos","Regidor","Río Viejo","San Cristóbal","San Estanislao","San Fernando","San Jacinto","San Jacinto del Cauca","San Juan Nepomuceno","San Martín de Loba","San Pablo","Santa Catalina","Santa Rosa","Santa Rosa del Sur","Simití","Soplaviento","Talaigua Nuevo","Tiquisio","Turbaco","Turbaná","Villanueva","Zambrano"],"Boyacá":["Almeida","Aquitania","Arcabuco","Belén","Berbeo","Betéitiva","Boavita","Boyacá","Briceño","Buenavista","Busbanzá","Caldas","Campohermoso","Cerinza","Chinavita","Chiquinquirá","Chiscas","Chita","Chitaraque","Chivatá","Chivor","Chíquiza","Ciénega","Coper","Corrales","Covarachía","Cubará","Cucaita","Cuítiva","Cómbita","Duitama","El Cocuy","El Espino","Firavitoba","Floresta","Gachantivá","Garagoa","Guacamayas","Guateque","Guayatá","Gámeza","Güicán","Iza","Jenesano","Jericó","La Capilla","La Uvita","La Victoria","Labranzagrande","Macanal","Maripí","Miraflores","Mongua","Monguí","Moniquirá","Motavita","Muzo","Nobsa","Nuevo Colón","Oicatá","Otanche","Pachavita","Paipa","Pajarito","Panqueba","Pauna","Paya","Paz del Río","Pesca","Pisba","Puerto Boyacá","Páez","Quípama","Ramiriquí","Rondón","Ráquira","Saboyá","Samacá","San Eduardo","San José de Pare","San Luis de Gaceno","San Mateo","San Miguel de Sema","San Pablo de Borbur","Santa María","Santa Rosa de Viterbo","Santa Sofía","Santana","Sativanorte","Sativasur","Siachoque","Soatá","Socha","Socotá","Sogamoso","Somondoco","Sora","Soracá","Sotaquirá","Susacón","Sutamarchán","Sutatenza","Sáchica","Tasco","Tenza","Tibaná","Tibasosa","Tinjacá","Tipacoque","Toca","Togüí","Tota","Tunja","Tununguá","Turmequé","Tuta","Tutazá","Tópaga","Ventaquemada","Villa de Leyva","Viracachá","Zetaquira","Úmbita"],"Caldas":["Aguadas","Anserma","Aranzazu","Belalcázar","Chinchiná","Filadelfia","La Dorada","La Merced","Manizales","Manzanares","Marmato","Marquetalia","Marulanda","Neira","Norcasia","Palestina","Pensilvania","Pácora","Riosucio","Risaralda","Salamina","Samaná","San José","Supía","Victoria","Villamaría","Viterbo"],"Caquetá":["Albania","Belén de los Andaquíes","Cartagena del Chairá","Curillo","El Doncello","El Paujil","Florencia","La Montañita","Milán","Morelia","Puerto Rico","San José del Fragua","San Vicente del Caguán","Solano","Solita","Valparaíso"],"Casanare":["Aguazul","Chámeza","Hato Corozal","La Salina","Maní","Monterrey","Nunchía","Orocué","Paz de Ariporo","Pore","Recetor","Sabanalarga","San Luis de Palenque","Sácama","Tauramena","Trinidad","Támara","Villanueva","Yopal"],"Cauca":["Almaguer","Argelia","Balboa","Bolívar","Buenos Aires","Cajibío","Caldono","Caloto","Corinto","El Tambo","Florencia","Guachené","Guapí","Inzá","Jambaló","La Sierra","La Vega","López de Micay","Mercaderes","Miranda","Morales","Padilla","Patía","Piamonte","Piendamó","Popayán","Puerto Tejada","Puracé","Páez","Rosas","San Sebastián","Santa Rosa","Santander de Quilichao","Silvia","Sotará","Sucre","Suárez","Timbiquí","Timbío","Toribío","Totoró","Villa Rica"],"Cesar":["Aguachica","Agustín Codazzi","Astrea","Becerril","Bosconia","Chimichagua","Chiriguaná","Curumaní","El Copey","El Paso","Gamarra","González","La Gloria (Cesar)","La Jagua de Ibirico","La Paz","Manaure Balcón del Cesar","Pailitas","Pelaya","Pueblo Bello","Río de Oro","San Alberto","San Diego","San Martín","Tamalameque","Valledupar"],"Chocó":["Acandí","Alto Baudó","Bagadó","Bahía Solano","Bajo Baudó","Bojayá","Cantón de San Pablo","Condoto","Cértegui","El Atrato","El Carmen de Atrato","El Carmen del Darién","Istmina","Juradó","Litoral de San Juan","Lloró","Medio Atrato","Medio Baudó","Medio San Juan","Nuquí","Nóvita","Quibdó","Riosucio","Río Iró","Río Quito","San José del Palmar","Sipí","Tadó","Unguía","Unión Panamericana"],"Cundinamarca":["Agua de Dios","Albán","Anapoima","Anolaima","Apulo","Arbeláez","Beltrán","Bituima","Bogotá","Bojacá","Cabrera","Cachipay","Cajicá","Caparrapí","Carmen de Carupa","Chaguaní","Chipaque","Choachí","Chocontá","Chía","Cogua","Cota","Cucunubá","Cáqueza","El Colegio","El Peñón","El Rosal","Facatativá","Fosca","Funza","Fusagasugá","Fómeque","Fúquene","Gachalá","Gachancipá","Gachetá","Gama","Girardot","Granada","Guachetá","Guaduas","Guasca","Guataquí","Guatavita","Guayabal de Síquima","Guayabetal","Gutiérrez","Jerusalén","Junín","La Calera","La Mesa","La Palma","La Peña","La Vega","Lenguazaque","Machetá","Madrid","Manta","Medina","Mosquera","Nariño","Nemocón","Nilo","Nimaima","Nocaima","Pacho","Paime","Pandi","Paratebueno","Pasca","Puerto Salgar","Pulí","Quebradanegra","Quetame","Quipile","Ricaurte","San Antonio del Tequendama","San Bernardo","San Cayetano","San Francisco","San Juan de Rioseco","Sasaima","Sesquilé","Sibaté","Silvania","Simijaca","Soacha","Sopó","Subachoque","Suesca","Supatá","Susa","Sutatausa","Tabio","Tausa","Tena","Tenjo","Tibacuy","Tibirita","Tocaima","Tocancipá","Topaipí","Ubalá","Ubaque","Ubaté","Une","Venecia","Vergara","Vianí","Villagómez","Villapinzón","Villeta","Viotá","Yacopí","Zipacón","Zipaquirá","Útica"],"Córdoba":["Ayapel","Buenavista","Canalete","Cereté","Chimá","Chinú","Ciénaga de Oro","Cotorra","La Apartada","Lorica","Los Córdobas","Momil","Montelíbano","Montería","Moñitos","Planeta Rica","Pueblo Nuevo","Puerto Escondido","Puerto Libertador","Purísima","Sahagún","San Andrés de Sotavento","San Antero","San Bernardo del Viento","San Carlos","San José de Uré","San Pelayo","Tierralta","Tuchín","Valencia"],"Guainía":["Inírida"],"Guaviare":["Calamar","El Retorno","Miraflores","San José del Guaviare"],"Huila":["Acevedo","Agrado","Aipe","Algeciras","Altamira","Baraya","Campoalegre","Colombia","El Pital","Elías","Garzón","Gigante","Guadalupe","Hobo","Isnos","La Argentina","La Plata","Neiva","Nátaga","Oporapa","Paicol","Palermo","Palestina","Pitalito","Rivera","Saladoblanco","San Agustín","Santa María","Suaza","Tarqui","Tello","Teruel","Tesalia","Timaná","Villavieja","Yaguará","Íquira"],"La Guajira":["Albania","Barrancas","Dibulla","Distracción","El Molino","Fonseca","Hatonuevo","La Jagua del Pilar","Maicao","Manaure","Riohacha","San Juan del Cesar","Uribia","Urumita","Villanueva"],"Magdalena":["Algarrobo","Aracataca","Ariguaní","Cerro de San Antonio","Chibolo","Ciénaga","Concordia","El Banco","El Piñón","El Retén","Fundación","Guamal","Nueva Granada","Pedraza","Pijiño del Carmen","Pivijay","Plato","Pueblo Viejo","Remolino","Sabanas de San Ángel","Salamina","San Sebastián de Buenavista","San Zenón","Santa Ana","Santa Bárbara de Pinto","Santa Marta","Sitionuevo","Tenerife","Zapayán","Zona Bananera"],"Meta":["Acacías","Barranca de Upía","Cabuyaro","Castilla la Nueva","Cubarral","Cumaral","El Calvario","El Castillo","El Dorado","Fuente de Oro","Granada","Guamal","La Macarena","La Uribe","Lejanías","Mapiripán","Mesetas","Puerto Concordia","Puerto Gaitán","Puerto Lleras","Puerto López","Puerto Rico","Restrepo","San Carlos de Guaroa","San Juan de Arama","San Juanito","San Martín","Villavicencio","Vista Hermosa"],"Nariño":["Aldana","Ancuyá","Arboleda","Barbacoas","Belén","Buesaco","Chachagüí","Colón","Consacá","Contadero","Cuaspud","Cumbal","Cumbitara","Córdoba","El Charco","El Peñol","El Rosario","El Tablón","El Tambo","Francisco Pizarro","Funes","Guachucal","Guaitarilla","Gualmatán","Iles","Imués","Ipiales","La Cruz","La Florida","La Llanada","La Tola","La Unión","Leiva","Linares","Los Andes","Magüí Payán","Mallama","Mosquera","Nariño","Olaya Herrera","Ospina","Pasto","Policarpa","Potosí","Providencia","Puerres","Pupiales","Ricaurte","Roberto Payán","Samaniego","San Bernardo","San José de Albán","San Lorenzo","San Pablo","San Pedro de Cartago","Sandoná","Santa Bárbara","Santacruz","Sapuyes","Taminango","Tangua","Tumaco","Túquerres","Yacuanquer"],"Norte de Santander":["Arboledas","Bochalema","Bucarasica","Chinácota","Chitagá","Convención","Cucutilla","Cáchira","Cácota","Cúcuta","Duranía","El Carmen","El Tarra","El Zulia","Gramalote","Hacarí","Herrán","La Esperanza","La Playa de Belén","Labateca","Los Patios","Lourdes","Mutiscua","Ocaña","Pamplona","Pamplonita","Puerto Santander","Ragonvalia","Salazar de Las Palmas","San Calixto","San Cayetano","Santiago","Santo Domingo de Silos","Sardinata","Teorama","Tibú","Toledo","Villa Caro","Villa del Rosario","Ábrego"],"Putumayo":["Colón","Mocoa","Orito","Puerto Asís","Puerto Caicedo","Puerto Guzmán","Puerto Leguízamo","San Francisco","San Miguel","Santiago","Sibundoy","Valle del Guamuez","Villagarzón"],"Quindío":["Armenia","Buenavista","Calarcá","Circasia","Córdoba","Filandia","Génova","La Tebaida","Montenegro","Pijao","Quimbaya","Salento"],"Risaralda":["Apía","Balboa","Belén de Umbría","Dosquebradas","Guática","La Celia","La Virginia","Marsella","Mistrató","Pereira","Pueblo Rico","Quinchía","Santa Rosa de Cabal","Santuario"],"San Andrés y Providencia":["Providencia y Santa Catalina Islas","San Andrés"],"Santander":["Aguada","Albania","Aratoca","Barbosa","Barichara","Barrancabermeja","Betulia","Bolívar","Bucaramanga","Cabrera","California","Capitanejo","Carcasí","Cepitá","Cerrito","Charalá","Charta","Chima","Chipatá","Cimitarra","Concepción","Confines","Contratación","Coromoro","Curití","El Carmen de Chucurí","El Guacamayo","El Peñón","El Playón","El Socorro","Encino","Enciso","Floridablanca","Florián","Galán","Girón","Guaca","Guadalupe","Guapotá","Guavatá","Gámbita","Güepsa","Hato","Jesús María","Jordán","La Belleza","La Paz","Landázuri","Lebrija","Los Santos","Macaravita","Matanza","Mogotes","Molagavita","Málaga","Ocamonte","Oiba","Onzaga","Palmar","Palmas del Socorro","Piedecuesta","Pinchote","Puente Nacional","Puerto Parra","Puerto Wilches","Páramo","Rionegro","Sabana de Torres","San Andrés","San Benito","San Gil","San Joaquín","San José de Miranda","San Miguel","San Vicente de Chucurí","Santa Bárbara","Santa Helena del Opón","Simacota","Suaita","Sucre","Suratá","Tona","Valle de San José","Vetas","Villanueva","Vélez","Zapatoca"],"Sucre":["Buenavista","Caimito","Chalán","Colosó","Corozal","Coveñas","El Roble","Galeras","Guaranda","La Unión","Los Palmitos","Majagual","Morroa","Ovejas","Sampués","San Antonio de Palmito","San Benito Abad","San Juan de Betulia","San Marcos","San Onofre","San Pedro","Sincelejo","Sincé","Sucre","Tolú","Tolú Viejo"],"Tolima":["Alpujarra","Alvarado","Ambalema","Anzoátegui","Armero","Ataco","Cajamarca","Carmen de Apicalá","Casabianca","Chaparral","Coello","Coyaima","Cunday","Dolores","El Espinal","Falán","Flandes","Fresno","Guamo","Herveo","Honda","Ibagué","Icononzo","Lérida","Líbano","Mariquita","Melgar","Murillo","Natagaima","Ortega","Palocabildo","Piedras","Planadas","Prado","Purificación","Rioblanco","Roncesvalles","Rovira","Saldaña","San Antonio","San Luis","Santa Isabel","Suárez","Valle de San Juan","Venadillo","Villahermosa","Villarrica"],"Valle del Cauca":["Alcalá","Andalucía","Ansermanuevo","Argelia","Bolívar","Buenaventura","Buga","Bugalagrande","Caicedonia","Cali","Calima","Candelaria","Cartago","Dagua","El Cairo","El Cerrito","El Dovio","El Águila","Florida","Ginebra","Guacarí","Jamundí","La Cumbre","La Unión","La Victoria","Obando","Palmira","Pradera","Restrepo","Riofrío","Roldanillo","San Pedro","Sevilla","Toro","Trujillo","Tuluá","Ulloa","Versalles","Vijes","Yotoco","Yumbo","Zarzal"],"Vaupés":["Carurú","Mitú","Taraira"],"Vichada":["Cumaribo","La Primavera","Puerto Carreño","Santa Rosalía"],"Bogotá D.C.":["Bogotá D.C."]};
-
   document.addEventListener('DOMContentLoaded', () => {
     const depSel = document.getElementById('departamento');
     DEPARTAMENTOS.forEach(d => {
@@ -933,6 +872,8 @@
       depSel.appendChild(opt);
     });
     document.getElementById('fecha').valueAsDate = new Date();
+    poblarEstrategias();
+    poblarActividades();
     setupMunicipioDependiente();
     setupVirtualToggle();
     setupConditionals();
@@ -943,16 +884,36 @@
     setupFormSubmit();
   });
 
+  /* Llena el select de estrategias y prepara el tooltip general */
+  function poblarEstrategias() {
+    const sel = document.getElementById('estrategia');
+    ESTRATEGIAS.forEach(e => {
+      const opt = document.createElement('option');
+      opt.value = e.estrategia;
+      opt.textContent = e.estrategia;
+      sel.appendChild(opt);
+    });
+  }
+
+  /* Llena el select de actividades */
+  function poblarActividades() {
+    const sel = document.getElementById('actividad');
+    ACTIVIDADES.forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = a.actividad;
+      opt.textContent = a.actividad;
+      sel.appendChild(opt);
+    });
+  }
+
   function setupMunicipioDependiente() {
     const depSel = document.getElementById('departamento');
     const munInput = document.getElementById('municipio');
     const datalist = document.getElementById('municipios-list');
-
     const cargarMunicipios = () => {
       const dep = depSel.value;
       datalist.innerHTML = '';
       munInput.value = '';
-
       if (!dep || !MUNICIPIOS[dep]) {
         munInput.disabled = true;
         munInput.placeholder = 'Selecciona primero el departamento';
@@ -966,9 +927,7 @@
         datalist.appendChild(opt);
       });
     };
-
     depSel.addEventListener('change', cargarMunicipios);
-
     munInput.addEventListener('blur', () => {
       const dep = depSel.value;
       if (!dep || !munInput.value) return;
@@ -983,23 +942,19 @@
     });
     munInput.addEventListener('input', () => munInput.setCustomValidity(''));
   }
-
   function setupVirtualToggle() {
     const esVirtual = document.getElementById('esVirtual');
     const region = document.getElementById('region');
     const departamento = document.getElementById('departamento');
     const municipio = document.getElementById('municipio');
     const comuna = document.getElementById('comuna');
-
     let valoresPrevios = { region: '', departamento: '', municipio: '', comuna: '' };
-
     esVirtual.addEventListener('change', () => {
       if (esVirtual.value === 'Si') {
         valoresPrevios.region = region.value;
         valoresPrevios.departamento = departamento.value;
         valoresPrevios.municipio = municipio.value;
         valoresPrevios.comuna = comuna.value;
-
         const opcionNA = (sel) => {
           const existe = Array.from(sel.options).some(o => o.value === 'No Aplica');
           if (!existe) {
@@ -1011,13 +966,11 @@
         };
         opcionNA(region);
         opcionNA(departamento);
-
         region.value = 'No Aplica';
         departamento.value = 'No Aplica';
         municipio.disabled = false;
         municipio.value = 'No Aplica';
         comuna.value = 'No Aplica';
-
         region.disabled = true;
         departamento.disabled = true;
         municipio.readOnly = true;
@@ -1039,7 +992,6 @@
         comuna.style.opacity = '';
         municipio.style.cursor = '';
         comuna.style.cursor = '';
-
         region.value = valoresPrevios.region;
         departamento.value = valoresPrevios.departamento;
         departamento.dispatchEvent(new Event('change'));
@@ -1048,46 +1000,53 @@
       }
     });
   }
-
   function setupConditionals() {
-    // Voluntarios solo si tipo gestión es voluntariado
+    /* Estrategia -> asigna tipo de gestión automáticamente, muestra descripción,
+       y activa el campo de voluntarios solo cuando la estrategia es Voluntariado */
+    const estrategia = document.getElementById('estrategia');
     const tipoGestion = document.getElementById('tipoGestion');
+    const panelEst = document.getElementById('panelEstrategia');
     const condVol = document.getElementById('cond-voluntarios');
     const inputVol = document.getElementById('voluntarios');
-    tipoGestion.addEventListener('change', () => {
-      const esVol = tipoGestion.value.startsWith('Voluntariado');
-      condVol.classList.toggle('show', esVol);
-      inputVol.required = esVol;
+    estrategia.addEventListener('change', () => {
+      const e = ESTRATEGIAS.find(x => x.estrategia === estrategia.value);
+      if (e) {
+        tipoGestion.value = e.tipoGestion;
+        panelEst.innerHTML = '<span class="ip-k">Tipo de gestión:</span> ' + escapeHtml(e.tipoGestion) + '<br>' + escapeHtml(e.tooltip);
+        panelEst.classList.add('show');
+      } else {
+        tipoGestion.value = '';
+        panelEst.classList.remove('show');
+        panelEst.innerHTML = '';
+      }
+      // Voluntarios solo si la estrategia es Voluntariado
+      const esVol = e && e.tipoGestion === 'Voluntariado';
+      condVol.classList.toggle('show', !!esVol);
+      inputVol.required = !!esVol;
       if (!esVol) inputVol.value = '';
     });
 
-    // Actividad "Otra"
+    /* Actividad -> muestra público sugerido y enfoque */
     const actividad = document.getElementById('actividad');
-    const condOtra = document.getElementById('cond-otraActividad');
-    const inputOtra = document.getElementById('otraActividad');
+    const panelAct = document.getElementById('panelActividad');
     actividad.addEventListener('change', () => {
-      const esOtra = actividad.value === '__OTRA__';
-      condOtra.classList.toggle('show', esOtra);
-      inputOtra.required = esOtra;
-      if (!esOtra) inputOtra.value = '';
+      const a = ACTIVIDADES.find(x => x.actividad === actividad.value);
+      if (a) {
+        const clase = a.enfoque.toLowerCase().indexOf('protec') !== -1 ? 'tag-pr' : 'tag-ap';
+        panelAct.innerHTML =
+          '<span class="ip-k">Público sugerido:</span> ' + escapeHtml(a.publico) +
+          '<br><span class="ip-k">Enfoque:</span> <span class="tag-enfoque ' + clase + '">' + escapeHtml(a.enfoque) + '</span>';
+        panelAct.classList.add('show');
+      } else {
+        panelAct.classList.remove('show');
+        panelAct.innerHTML = '';
+      }
     });
 
-    // Estrategia "Otra"
-    const estrategia = document.getElementById('estrategia');
-    const condOtraEst = document.getElementById('cond-otraEstrategia');
-    const inputOtraEst = document.getElementById('otraEstrategia');
-    estrategia.addEventListener('change', () => {
-      const esOtraEst = estrategia.value === '__OTRA_ESTRATEGIA__';
-      condOtraEst.classList.toggle('show', esOtraEst);
-      inputOtraEst.required = esOtraEst;
-      if (!esOtraEst) inputOtraEst.value = '';
-    });
-
-    // Tipo de vínculo solo ajusta las sugerencias del campo Nombre de la alianza (que está siempre visible)
+    /* Tipo de vínculo solo ajusta las sugerencias del campo Nombre de la alianza */
     const tipoVinculo = document.getElementById('tipoVinculo');
     const inpNombre = document.getElementById('nombreAlianza');
     const datalistAliados = document.getElementById('aliados-list');
-
     const cargarSugerencias = (lista) => {
       datalistAliados.innerHTML = '';
       lista.forEach(a => {
@@ -1096,7 +1055,6 @@
         datalistAliados.appendChild(opt);
       });
     };
-
     tipoVinculo.addEventListener('change', () => {
       datalistAliados.innerHTML = '';
       if (tipoVinculo.value === 'Alianza') {
@@ -1108,7 +1066,6 @@
       }
     });
   }
-
   function setupBeneficiariosCheck() {
     const total = document.getElementById('totalBenef');
     const muj = document.getElementById('mujeres');
@@ -1131,8 +1088,8 @@
     };
     [total, muj, hom].forEach(el => el.addEventListener('input', validar));
   }
-
   function setupStepperHighlight() {
+    if (typeof IntersectionObserver === 'undefined') return;
     const sections = document.querySelectorAll('.section');
     const steps = document.querySelectorAll('.step');
     const observer = new IntersectionObserver((entries) => {
@@ -1145,7 +1102,6 @@
     }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
     sections.forEach(s => observer.observe(s));
   }
-
   function setupFileDrop(dropId, inputId, nameId) {
     const drop = document.getElementById(dropId);
     const input = document.getElementById(inputId);
@@ -1178,33 +1134,21 @@
       }
     }));
   }
-
   function setupFormSubmit() {
     const form = document.getElementById('reportForm');
     const btn = document.getElementById('btnSubmit');
     const errorBanner = document.getElementById('errorBanner');
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       errorBanner.classList.remove('show');
       if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      const sActividad = document.getElementById('actividad').value;
-      const actividadFinal = sActividad === '__OTRA__'
-        ? document.getElementById('otraActividad').value
-        : sActividad;
-
-      const sEstrategia = document.getElementById('estrategia').value;
-      const estrategiaFinal = sEstrategia === '__OTRA_ESTRATEGIA__'
-        ? document.getElementById('otraEstrategia').value
-        : sEstrategia;
-
+      const actividadFinal = document.getElementById('actividad').value;
+      const estrategiaFinal = document.getElementById('estrategia').value;
       const tipoVinculo = document.getElementById('tipoVinculo').value;
       let nombreAliado = 'NA';
       if (tipoVinculo === 'Alianza' || tipoVinculo === 'Articulación') {
         nombreAliado = (document.getElementById('nombreAlianza').value || '').trim() || 'NA';
       }
-
       const payload = new FormData();
       payload.append('Nombre Líder Territorial', document.getElementById('gestor').value);
       payload.append('Tipo de Gestión', document.getElementById('tipoGestion').value);
@@ -1233,7 +1177,6 @@
       payload.append('Hombres Beneficiados', document.getElementById('hombres').value);
       payload.append('Número de Voluntarios', document.getElementById('voluntarios').value || '0');
       payload.append('Comentarios', document.getElementById('comentarios').value);
-
       const fileInput = document.getElementById('evidencia');
       if (fileInput.files && fileInput.files[0]) {
         payload.append('Adjunta aquí tu evidencia', fileInput.files[0]);
@@ -1242,10 +1185,8 @@
       if (avInput.files && avInput.files[0]) {
         payload.append('Registro audiovisual', avInput.files[0]);
       }
-
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span> Enviando...';
-
       try {
         if (N8N_WEBHOOK_URL === 'REEMPLAZAR_CON_TU_WEBHOOK_URL') {
           await new Promise(r => setTimeout(r, 1200));
@@ -1254,7 +1195,6 @@
           const res = await fetch(N8N_WEBHOOK_URL, { method: 'POST', body: payload });
           if (!res.ok) throw new Error('Error en el servidor: ' + res.status);
         }
-
         showSuccess({
           gestor: document.getElementById('gestor').value,
           estrategia: estrategiaFinal,
@@ -1266,7 +1206,6 @@
           totalBenef: document.getElementById('totalBenef').value,
           aliado: nombreAliado
         });
-
       } catch (err) {
         console.error(err);
         errorBanner.textContent = 'Hubo un error al enviar el reporte. Verifica tu conexión y vuelve a intentar. Si persiste, escríbenos a soporte@masportic.onmicrosoft.com.';
@@ -1276,7 +1215,6 @@
       }
     });
   }
-
   function showSuccess(data) {
     document.getElementById('form-view').style.display = 'none';
     document.querySelector('.hero').style.display = 'none';
@@ -1295,7 +1233,6 @@
     document.getElementById('success-view').classList.add('show');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
   function escapeHtml(s) {
     return String(s || '').replace(/[&<>"']/g, m => ({
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
