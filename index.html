@@ -485,7 +485,7 @@
               <label for="tipoGestion">Tipo de Gestión<span class="req">*</span>
                 <span class="label-hint">Se asigna automáticamente según la estrategia seleccionada.</span>
               </label>
-              <select id="tipoGestion" name="tipoGestion" required class="locked" tabindex="-1" aria-readonly="true">
+              <select id="tipoGestion" name="tipoGestion" required class="locked" tabindex="-1" aria-disabled="true" disabled>
                 <option value="">Selecciona primero la estrategia</option>
                 <option>Canales Digitales</option>
                 <option>Gestión Individual</option>
@@ -1145,7 +1145,11 @@
       }
       const payload = new FormData();
       payload.append('Nombre Líder Territorial', document.getElementById('gestor').value);
-      payload.append('Tipo de Gestión', document.getElementById('tipoGestion').value);
+      /* El tipo de gestión no se lee del select (está bloqueado), sino del mapa
+         ESTRATEGIAS, para que el valor enviado sea siempre el correcto. */
+      const estrategiaObj = ESTRATEGIAS.find(x => x.estrategia === estrategiaFinal);
+      const tipoGestionFinal = estrategiaObj ? estrategiaObj.tipoGestion : (document.getElementById('tipoGestion').value || 'NA');
+      payload.append('Tipo de Gestión', tipoGestionFinal);
       payload.append('Estrategia', estrategiaFinal);
       payload.append('Fecha de la actividad', document.getElementById('fecha').value);
       payload.append('Región', document.getElementById('region').value);
