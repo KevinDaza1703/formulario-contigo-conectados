@@ -370,6 +370,7 @@
       font-size: 13px;
       color: var(--ink-soft);
     }
+
     /* ===== Tooltips informativos (estrategia y actividad) ===== */
     .tip-wrap { position: relative; display: inline-flex; align-items: center; margin-left: 6px; vertical-align: middle; cursor: pointer; outline: none; }
     .tip-icon {
@@ -444,7 +445,7 @@
         </span>
         <span class="hero-meta-item">
           <span class="hero-meta-dot"></span>
-          Soporte: <a href="mailto:soporte@masportic.onmicrosoft.com">soporte@masportic.org</a>
+          Soporte: <a href="mailto:soporte@masportic.onmicrosoft.com">soporte@masportic.onmicrosoft.com</a>
         </span>
       </div>
     </div>
@@ -540,11 +541,13 @@
                 <label for="region">Región<span class="req">*</span></label>
                 <select id="region" name="region" required>
                   <option value="">Selecciona</option>
-                  <option>Bogotá-Centro</option>
+                  <option>Centro</option>
                   <option>Costa</option>
-                  <option>Andino</option>
+                  <option>Eje Cafetero</option>
+                  <option>Nacional</option>
+                  <option>Noroccidente</option>
                   <option>Oriente</option>
-                  <option>Sur</option>
+                  <option>Suroccidente</option>
                   <option>No Aplica</option>
                 </select>
               </div>
@@ -703,10 +706,10 @@
               <select id="publico" name="publico" required>
                 <option value="">Selecciona</option>
                 <option>Adolescentes</option>
-                <option>Personas Mayores</option>
+                <option>Adultos Mayores</option>
                 <option>Emprendedores</option>
                 <option>Jóvenes</option>
-                <option>Docentes</option>
+                <option>Maestros</option>
                 <option>Mujeres</option>
                 <option>Niños 10-12 años</option>
                 <option>Niños 6-9 años</option>
@@ -726,7 +729,6 @@
                 <option value="">Selecciona la actividad</option>
               </select>
               <div class="info-panel" id="panelActividad"></div>
-              <input type="hidden" id="enfoque" name="enfoque" value="" />
             </div>
             <div class="field-row">
               <div class="field">
@@ -814,10 +816,13 @@
   </footer>
   <script>
   const N8N_WEBHOOK_URL = 'https://masportic.app.n8n.cloud/webhook/contigo-conectados';
+
   /* ===== Estrategias (con tipo de gestión asociado y descripción) ===== */
   const ESTRATEGIAS = [{"estrategia": "Sello Territorio Digital Seguro", "tipoGestion": "Gestión Territorial", "descripcion": "Cuando la actividad se ejecuta con una institución educativa vinculada al proceso del Sello y suma a su ruta de certificación.", "tooltip": "Actividad ejecutada con una institución educativa vinculada al proceso del Sello, que suma a su ruta de certificación."}, {"estrategia": "Ruta nacional de formación masiva", "tipoGestion": "Gestión Territorial", "descripcion": "Cuando la actividad se ejecuta en el marco de la estrategia pensada por el equipo de líderes territoriales de manera virtual para 2026", "tooltip": "Actividad ejecutada en el marco de la estrategia de formación virtual masiva pensada por el equipo de líderes territoriales para 2026."}, {"estrategia": "Eventos virtuales y presenciales masivos", "tipoGestion": "Gestión Territorial", "descripcion": "Cuando se despliegan la estrategias de eventos masivos virtuales o presenciales con una convocatoria previa", "tooltip": "Despliegue de eventos masivos virtuales o presenciales con una convocatoria previa."}, {"estrategia": "Cursos por WhatsApp", "tipoGestion": "Canales Digitales", "descripcion": "Cuando se definen cohorte con aliados para iniciar cursos por Whatsapp programados con anterioridad", "tooltip": "Cohortes definidas con aliados para iniciar cursos por WhatsApp programados con anterioridad."}, {"estrategia": "Ecosistema Digital descargables tipo cápsulas educativas cortas.", "tipoGestion": "Canales Digitales", "descripcion": "Cuando los beneficiarios efectivamente acceder a material educativos a través del ecosistema digital de Tigo", "tooltip": "Los beneficiarios acceden a material educativo a través del ecosistema digital de Tigo."}, {"estrategia": "Aliados con QR y enlaces trazables a cápsulas educativas cortas", "tipoGestion": "Canales Digitales", "descripcion": "Cuando a través de material como cápsulas educativas un aliado visibiliza este por sus redes y se tiene el registro de los beneficiarios que efectivamente lo usaron", "tooltip": "Un aliado difunde cápsulas educativas por sus redes y se registran los beneficiarios que efectivamente las usaron mediante QR o enlace trazable."}, {"estrategia": "Estrategia Digital", "tipoGestion": "Canales Digitales", "descripcion": "Cuando se realizan campañas digitales en redes, pauta, email marketing y demás acciones para facilitar el acceso a beneficiarios a material pedagógico o invitaciones a eventos o charlas", "tooltip": "Campañas digitales en redes, pauta, email marketing y otras acciones para facilitar el acceso a material o a eventos."}, {"estrategia": "Voluntariado", "tipoGestion": "Voluntariado", "descripcion": "Cuando se acompaña el despliegue de actividades de Contigo Conectados, con acciones de voluntariado social o ambiental", "tooltip": "Acompañamiento al despliegue de actividades con acciones de voluntariado social o ambiental."}, {"estrategia": "Réplica por actor habilitado", "tipoGestion": "Gestión Territorial", "descripcion": "Una persona previamente habilitada por el programa ejecuta la actividad con públicos finales usando materiales aprobados.\nCuando la actividad la realiza un externo a MásPorTIC entrenado para hacerlo.", "tooltip": "Una persona externa a MásPorTIC, previamente habilitada por el programa, ejecuta la actividad con públicos finales usando materiales aprobados."}, {"estrategia": "Una alianza nacional con despliegue territorial", "tipoGestion": "Gestión Territorial", "descripcion": "La actividad nace de una alianza, directriz o plan acordado a nivel nacional y la región implementa con sedes, nodos o públicos territoriales.", "tooltip": "La actividad nace de una alianza o plan acordado a nivel nacional y la región lo implementa con sedes, nodos o públicos territoriales."}, {"estrategia": "Relacionamiento Territorial informal directo", "tipoGestion": "Gestión Individual", "descripcion": "Cuando la actividad ejecutada nace por gestión directa del equipo territorial con una institución, organización o grupo específico, sin alianza formal, ruta nacional o actor articulador previo. Funciona como puerta de entrada para futuras rutas territoriales.\nTambién puede surgir de actividades producto del relacionamiento generado por networking, llamadas, seguimiento WhatsApp, cartas y voz a voz.", "tooltip": "Actividad que nace por gestión directa del equipo territorial con una institución o grupo, sin alianza formal ni ruta nacional previa. Puerta de entrada para futuras rutas."}, {"estrategia": "Relacionamiento Territorial formal", "tipoGestion": "Gestión Individual", "descripcion": "Cuando la actividad se realiza en el marco de un convenio, memorando, carta, acta o acuerdo formal vigente, que no clasifique las actividades dentro de las demás estrategias listadas anteriormente.", "tooltip": "Actividad realizada en el marco de un convenio, memorando, carta o acuerdo formal vigente, que no encaja en las demás estrategias."}];
+
   /* ===== Actividades (con público sugerido y enfoque) ===== */
-  const ACTIVIDADES = [{"actividad": "Clase+cámara+acción: creando contenidos educativos", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Conéctate al aula digital: transforma tus clases con herramientas digitales", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "DocencIA: potencia tu creatividad pedagógica en el aula", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Navegando a mi ritmo: mejores búsquedas en Internet", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Acompañar para conectar: mediación docente para el uso de Internet", "publico": "Docentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Todos Conectados: Brújula digital para la vida diaria", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Mujeres Conectadas al mundo digital", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Internet para cuidarte: bienestar en línea", "publico": "Personas mayores", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Transacciones seguras en Internet", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Tecnología a mi ritmo (ciclo de contenidos)", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Familias conectadas: acuerdos para el uso responsable y seguro de Internet", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Del like al aprendizaje: oportunidades de las Redes Sociales como herramientas educativas", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Mediación digital en familia", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Pantalla OFF, descanso ON", "publico": "Adolescentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Mi primera pantalla: un portal al mundo de Pep, Tito y Leti", "publico": "Niñas y Niños 6 a 9 años", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con el empleo: haz brillar tu perfil con herramientas profesionales", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Mi primer clic: mediación en familia para la primera infancia", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Guardianes digitales: Conexión con los entornos protectores", "publico": "Docentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Escudo digital activado", "publico": "Adolescentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Bienestar digital docente: hábitos para trabajar con tecnología sin agotarse", "publico": "Docentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con el emprendimiento: lleva tu negocio a otro nivel", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Detrás del avatar: DebaTIC", "publico": "Niñas y Niños 10 - 12", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con tus derechos: herramientas para participar con confianza en los espacios digitales públicos", "publico": "Mujeres", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Famil-IA: reduce la brecha digital con Inteligencia Artificial", "publico": "PMyC", "enfoque": "Apropiación Digital"}, {"actividad": "Tareas sin drama: acompaña el aprendizaje usando herramientas digitales", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Pantallas con sentido: elige contenidos adecuados según la edad", "publico": "PMyC", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Más allá del trend: Riesgos y oportunidades de las redes.", "publico": "Adolescentes", "enfoque": "Protección - Entornos seguros"}, {"actividad": "Conectadas con la educación: herramientas digitales para el aprendizaje", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Tu radar digital: identifica recursos digitales para tus clases", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Conectadas con tus Finanzas: gestiona tu dinero en el entorno digital", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Internet de las oportunidades: conoce cómo Internet impacta tu vida", "publico": "PMyC", "enfoque": "Apropiación Digital"}];
+  const ACTIVIDADES = [{"actividad": "Clase+cámara+acción: creando contenidos educativos", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Conéctate al aula digital: transforma tus clases con herramientas digitales", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "DocencIA: potencia tu creatividad pedagógica en el aula", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Navegando a mi ritmo: mejores búsquedas en Internet", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Acompañar para conectar: mediación docente para el uso de Internet", "publico": "Docentes", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Todos Conectados: Brújula digital para la vida diaria", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Mujeres Conectadas al mundo digital", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Internet para cuidarte: bienestar en línea", "publico": "Personas mayores", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Transacciones seguras en Internet", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Tecnología a mi ritmo (ciclo de contenidos)", "publico": "Personas mayores", "enfoque": "Apropiación Digital"}, {"actividad": "Familias conectadas: acuerdos para el uso responsable y seguro de Internet", "publico": "PMyC", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Del like al aprendizaje: oportunidades de las Redes Sociales como herramientas educativas", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Mediación digital en familia", "publico": "PMyC", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Pantalla OFF, descanso ON", "publico": "Adolescentes", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Mi primera pantalla: un portal al mundo de Pep, Tito y Leti", "publico": "Niñas y Niños 6 a 9 años", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Conectadas con el empleo: haz brillar tu perfil con herramientas profesionales", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Mi primer clic: mediación en familia para la primera infancia", "publico": "PMyC", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Guardianes digitales: Conexión con los entornos protectores", "publico": "Docentes", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Escudo digital activado", "publico": "Adolescentes", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Bienestar digital docente: hábitos para trabajar con tecnología sin agotarse", "publico": "Docentes", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Conectadas con el emprendimiento: lleva tu negocio a otro nivel", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Detrás del avatar: DebaTIC", "publico": "Niñas y Niños 10 - 12", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Conectadas con tus derechos: herramientas para participar con confianza en los espacios digitales públicos", "publico": "Mujeres", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Famil-IA: reduce la brecha digital con Inteligencia Artificial", "publico": "PMyC", "enfoque": "Apropiación Digital"}, {"actividad": "Tareas sin drama: acompaña el aprendizaje usando herramientas digitales", "publico": "PMyC", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Pantallas con sentido: elige contenidos adecuados según la edad", "publico": "PMyC", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Más allá del trend: Riesgos y oportunidades de las redes.", "publico": "Adolescentes", "enfoque": "Protección - Conéctate Seguro"}, {"actividad": "Conectadas con la educación: herramientas digitales para el aprendizaje", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Tu radar digital: identifica recursos digitales para tus clases", "publico": "Docentes", "enfoque": "Apropiación Digital"}, {"actividad": "Conectadas con tus Finanzas: gestiona tu dinero en el entorno digital", "publico": "Mujeres", "enfoque": "Apropiación Digital"}, {"actividad": "Internet de las oportunidades: conoce cómo Internet impacta tu vida", "publico": "PMyC", "enfoque": "Apropiación Digital"}];
+
   const DEPARTAMENTOS = [
     'Amazonas','Antioquia','Arauca','Atlántico','Bogotá D.C.','Bolívar','Boyacá',
     'Caldas','Caquetá','Casanare','Cauca','Cesar','Chocó','Córdoba','Cundinamarca',
@@ -878,6 +883,7 @@
     setupBeneficiariosCheck();
     setupFormSubmit();
   });
+
   /* Llena el select de estrategias y prepara el tooltip general */
   function poblarEstrategias() {
     const sel = document.getElementById('estrategia');
@@ -888,6 +894,7 @@
       sel.appendChild(opt);
     });
   }
+
   /* Llena el select de actividades */
   function poblarActividades() {
     const sel = document.getElementById('actividad');
@@ -898,6 +905,7 @@
       sel.appendChild(opt);
     });
   }
+
   function setupMunicipioDependiente() {
     const depSel = document.getElementById('departamento');
     const munInput = document.getElementById('municipio');
@@ -1017,10 +1025,10 @@
       inputVol.required = !!esVol;
       if (!esVol) inputVol.value = '';
     });
-    /* Actividad -> muestra público sugerido y enfoque, y guarda el enfoque para el envío */
+
+    /* Actividad -> muestra público sugerido y enfoque */
     const actividad = document.getElementById('actividad');
     const panelAct = document.getElementById('panelActividad');
-    const enfoqueInput = document.getElementById('enfoque');
     actividad.addEventListener('change', () => {
       const a = ACTIVIDADES.find(x => x.actividad === actividad.value);
       if (a) {
@@ -1029,13 +1037,12 @@
           '<span class="ip-k">Público sugerido:</span> ' + escapeHtml(a.publico) +
           '<br><span class="ip-k">Enfoque:</span> <span class="tag-enfoque ' + clase + '">' + escapeHtml(a.enfoque) + '</span>';
         panelAct.classList.add('show');
-        enfoqueInput.value = a.enfoque;
       } else {
         panelAct.classList.remove('show');
         panelAct.innerHTML = '';
-        enfoqueInput.value = '';
       }
     });
+
     /* Tipo de vínculo solo ajusta las sugerencias del campo Nombre de la alianza */
     const tipoVinculo = document.getElementById('tipoVinculo');
     const inpNombre = document.getElementById('nombreAlianza');
@@ -1137,7 +1144,6 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       const actividadFinal = document.getElementById('actividad').value;
       const estrategiaFinal = document.getElementById('estrategia').value;
-      const enfoqueFinal = document.getElementById('enfoque').value || 'Por clasificar';
       const tipoVinculo = document.getElementById('tipoVinculo').value;
       let nombreAliado = 'NA';
       if (tipoVinculo === 'Alianza' || tipoVinculo === 'Articulación') {
@@ -1165,7 +1171,6 @@
       payload.append('Tipo de Intervención', document.getElementById('tipoIntervencion').value);
       payload.append('Público', document.getElementById('publico').value);
       payload.append('Tipo de actividad o proyecto', actividadFinal);
-      payload.append('Enfoque', enfoqueFinal);
       payload.append('Número de actividades', document.getElementById('numActividades').value);
       payload.append('Total beneficiarios', document.getElementById('totalBenef').value);
       payload.append('Mujeres Beneficiadas', document.getElementById('mujeres').value);
@@ -1194,7 +1199,6 @@
           gestor: document.getElementById('gestor').value,
           estrategia: estrategiaFinal,
           actividad: actividadFinal,
-          enfoque: enfoqueFinal,
           fecha: document.getElementById('fecha').value,
           ubicacion: document.getElementById('municipio').value + ', ' + document.getElementById('departamento').value,
           institucion: document.getElementById('nombreInst').value,
@@ -1219,7 +1223,6 @@
       <dt>Líder territorial</dt><dd>${escapeHtml(data.gestor)}</dd>
       <dt>Estrategia</dt><dd>${escapeHtml(data.estrategia)}</dd>
       <dt>Actividad</dt><dd>${escapeHtml(data.actividad)}</dd>
-      <dt>Enfoque</dt><dd>${escapeHtml(data.enfoque)}</dd>
       <dt>Fecha</dt><dd>${escapeHtml(data.fecha)}</dd>
       <dt>Ubicación</dt><dd>${escapeHtml(data.ubicacion)}</dd>
       <dt>Institución</dt><dd>${escapeHtml(data.institucion)}</dd>
